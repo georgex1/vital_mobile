@@ -178,10 +178,13 @@ h1.ui-title{
 
 #latidos .ui-content{
     background: url(images/mask.png);
+    height: 88.6%;
+    position: absolute;
 }
 
 #latidos.ui-body-a, #latidos.ui-overlay-a {
     background-size: 100% 100%;
+    overflow: hidden;
 }
 
 .latidos{
@@ -200,7 +203,7 @@ h1.ui-title{
 }
 .latidos a span{
     top: 30px;
-    left: 12px;
+    left: 16%;
     position: absolute;
     font-size: 0.8em;
     color: white;
@@ -214,6 +217,7 @@ h1.ui-title{
     background: #FAA31B;
     padding: 3px 1%;
     position: relative;
+    text-align: center;
 }
 .latidos p.pb{
     background: #F87D1A;
@@ -236,7 +240,7 @@ h1.ui-title{
 }
 #escuchar .ui-content{
     padding: 0;
-    height: 91%;
+    /*height: 94%;*/
     width: 100%;
     position: absolute;
     overflow: hidden;
@@ -354,10 +358,10 @@ h1.ui-title{
 }
 
 #documental .redes{
+    bottom: 10px;
     position: absolute;
-    bottom: 0;
     width: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 #documental .redes_right{
@@ -369,6 +373,7 @@ h1.ui-title{
 #documental .redes img{
     display: block;
     float: left;
+    margin-top: -10px;
 }
 
 #documental .redes a{

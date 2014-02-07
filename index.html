@@ -18,6 +18,8 @@
         <script type="text/javascript">
         $(document).ready(function(){
             $('.vital40').height($(window).height()*1-60);
+            $('.escuchar_content').height($(window).height()*1-42);
+            
             $('.margin_arrow').click(function(){
                 $('.text_box').animate({'margin-top': '0'}, 500);
                 $('.margin_arrow').hide();
@@ -104,10 +106,10 @@
                 <a href="javascript:;" onclick="history.back();" ><img src="images/menu_flecha.png" width="20" /></a>
                 <a href="#nav-panel" ><img src="images/menu_opciones.png" width="20" /></a>
             </div><!--header-->
-            <div data-role="content">
+            <div data-role="content" class="escuchar_content">
                 <div class="escuchar">
                     <div id="escuchar_top">
-                        <img src="images/lady.png" width="100%" />
+                        <img src="images/lady.png" width="100%" height="100%" />
                     </div><!--escuchar_top-->
                     
                     <div id="escuchar_bottom">
