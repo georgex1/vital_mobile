@@ -19,6 +19,7 @@
         $(document).ready(function(){
             $('.vital40').height($(window).height()*1-60);
             $('.escuchar_content').height($(window).height()*1-42);
+            $('.latidos_content').height($(window).height()*1-42);
             
             $('.margin_arrow').click(function(){
                 $('.text_box').animate({'margin-top': '0'}, 500);
@@ -74,7 +75,7 @@
                 <a href="javascript:;" onclick="history.back();" ><img src="images/menu_flecha.png" width="20" /></a>
                 <a href="#nav-panel" ><img src="images/menu_opciones.png" width="20" /></a>
             </div><!--header-->
-            <div data-role="content">
+            <div data-role="content" class="latidos_content">
                 <div class="latidos">
                     <a href="#escuchar" data-transition="slide"><img src="images/latido.png" width="100%" /></a>
                     <p><span></span>Escuchá el latido</p>
