@@ -181,7 +181,7 @@ h1.ui-title{
     /*height: 88.6%;*/
     position: absolute;
     width: 100%;
-    padding: 10% 0 0;
+    padding: 5% 0 0;
 }
 
 #latidos.ui-body-a, #latidos.ui-overlay-a {
@@ -217,7 +217,7 @@ h1.ui-title{
     color: white;
     font-size: 0.8em;
     background: #FAA31B;
-    padding: 1%;
+    padding: 2%;
     position: relative;
     text-align: center;
 }
