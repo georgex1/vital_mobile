@@ -1,0 +1,482 @@
+@font-face {
+    font-family: 'GothamLight';
+    src: url('css/GothamLight/gothamlight.eot');
+    src: url('css/GothamLight/gothamlight.eot') format('embedded-opentype'),
+         url('css/GothamLight/gothamlight.woff') format('woff'),
+         url('css/GothamLight/gothamlight.ttf') format('truetype'),
+         url('css/GothamLight/gothamlight.svg#GothamLight') format('svg');
+}
+
+*{
+    outline: none;
+    font-size: 1em;
+    font-family: 'GothamLight' !important;
+}
+
+body{
+    
+}
+
+.page{
+    background: url(images/background.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+/*sobrescribir reglas jquery mobile theme*/
+.form .ui-shadow-inset{
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+}
+.ui-corner-all {
+    border-radius: 0em;
+}
+input.ui-input-text, textarea.ui-input-text{
+    
+}
+
+.ui-body-a, .ui-overlay-a {
+    text-shadow: none;
+    border: none;
+    color: black;
+}
+.ui-shadow {
+    box-shadow: none;
+}
+.ui-btn-corner-all {
+    border-radius: 0em;
+}
+.ui-btn-up-a, .ui-btn-hover-a {
+    background: none;
+    border: none;
+    font-weight: 100;
+    text-shadow: none;
+}
+.ui-submit .ui-btn-inner {
+    display: none !important;
+}
+.ui-btn-hidden {
+    opacity: 1;
+}
+
+.ui-btn-text{
+    z-index: 3;
+}
+button{
+    cursor: pointer;
+}
+.ui-shadow-inset {
+    box-shadow: none;
+}
+
+/*input::-moz-placeholder, textarea::-moz-placeholder {
+    color: #9B938B;
+}*/
+/*-----------*/
+
+.form{
+    display: block;
+    margin-top: 20px;
+}
+.page .form input{
+    border: none;
+    background: white;
+    border-bottom: 3px solid #DB6C02 !important;
+    width: 70% !important;
+    margin: auto !important;
+    text-align: center;
+    color: #9B938B;
+}
+
+.page .form button{
+    color: white;
+    font-size: 1.3em;
+    background: #20406B;
+    border: none;
+    padding: 0.4em;
+    width: 74% !important;
+    border-bottom: 3px solid #DB6C02 !important;
+}
+
+#code #code_content h1 img, #code #code_content p img, #home #code_content h1 img{
+    display: block;
+    margin: auto;
+}
+#code #code_content p img, #home #code_content h1 img{
+    margin-top: 15%;
+}
+
+.ui-body-a, .ui-overlay-a{
+    background: none;
+    background: url(images/background.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.main_menu{
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 95%;
+    margin: auto;
+    margin-top: 20%;
+    box-shadow: 2px 2px 5px 0 rgba(0,0,0,.6);
+}
+.main_menu ul{
+    width: 94%;
+    margin: 3% auto;
+    padding: 0;
+}
+.main_menu ul li{
+    padding: 5px 5px 5px 20px;
+    list-style: none;
+    border-bottom: 1px solid #F2EBDD;
+}
+.main_menu ul li a{
+    background: url(images/items.png) top left no-repeat;
+    background-size: 23px auto;
+    display: block;
+    padding: 1% 0;
+    padding-left: 40px;
+    font-weight: 100;
+    color: #9B938B;
+    text-decoration: none;
+}
+.ui-body-a .ui-link {
+    color: #9B938B;
+    font-weight: 100;
+    font-size: 1.2em;
+}
+
+.main_menu ul li.last{
+    border: none;
+}
+.main_menu ul li.item_escuchar a{
+    background-position: 0 0;
+}
+.main_menu ul li.item_documental a{
+    background-position: 0 -36px;
+}
+.main_menu ul li.item_vital40 a{
+    background-position: 0 -77px;
+}
+
+.ui-bar-a {
+    background: #1B4C87;
+}
+
+.ui-header .ui-title, .ui-footer .ui-title {
+    margin: 0.6em 15% 0.8em;
+}
+
+.ui-btn-left, .ui-btn-right{
+    margin: 0 5px !important;
+    margin-top: 5px !important;
+}
+h1.ui-title{
+    font-weight: 100;
+}
+
+#latidos .ui-content{
+    background: url(images/mask.png);
+}
+
+#latidos.ui-body-a, #latidos.ui-overlay-a {
+    background-size: 100% 100%;
+}
+
+.latidos{
+    
+}
+.latidos a{
+    display: block;
+    margin: auto;
+    width: 40%;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    margin-top: 3%;
+}
+.latidos a img{
+}
+.latidos a span{
+    top: 30px;
+    left: 12px;
+    position: absolute;
+    font-size: 0.8em;
+    color: white;
+}
+.latidos p{
+    width: 38%;
+    margin: auto;
+    margin-top: 5px;
+    color: white;
+    font-size: 0.8em;
+    background: #FAA31B;
+    padding: 3px 1%;
+    position: relative;
+}
+.latidos p.pb{
+    background: #F87D1A;
+}
+.latidos p span{
+    position: absolute;
+    top: -10px;
+    background: url(images/latido_flecha.png);
+    width: 10px;
+    height: 10px;
+    background-size: 100% 100%;
+    left: 45%;
+}
+#footer_logo img{
+    display: block;
+    margin: auto;
+}
+
+#escuchar{
+}
+#escuchar .ui-content{
+    padding: 0;
+    height: 91%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+.escuchar{
+    height: 100%;
+}
+
+#escuchar_top{
+    height: 50%;
+    width: 100%;
+    overflow: hidden;
+}
+#escuchar_bottom{
+    height: 50%;
+    position: relative;
+    width: 100%;
+    background: #FFBE75;
+    background: url(images/escuchar_play.png);
+    background-size: 100% 100%;
+}
+#escuchar_bottom img{
+    display: block;
+    margin: auto;
+}
+#pausa{
+    width: 11%;
+    right: 5.1%;
+    bottom: 8%;
+    position: absolute;
+}
+
+#mix{
+    
+}
+#mix .main_menu{
+    margin-top: 7%;
+}
+.main_menu ul li.item_musica a {
+    background: url(images/item_musica.png) top left no-repeat;
+    background-size: auto 85%;
+}
+.main_menu ul li.item_logo img{
+    display: block;
+    margin: auto;
+}
+
+#mix_repro{}
+
+#mix_repro h2{
+    text-align: center;
+    color: #838383;
+    font-size: 1.7em;
+    font-weight: 100;
+    margin-top: 5px;
+}
+
+#mix_repro.ui-body-a, #mix_repro.ui-overlay-a, #mix_repro .ui-body-a, #mix_repro .ui-overlay-a{
+    background: url(images/mix_reproductor.png) left 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.reproductor_opts{
+    position: absolute;
+    bottom: 5%;
+    width: 90%;
+}
+.reproductor_opts a{
+    width: 26%;
+    display: block;
+    margin: auto;
+}
+.reproductor_opts a.reproductor_opts_cancel{
+    float: left;
+    margin-left: 15%;
+}
+.reproductor_opts a.reproductor_opts_ok{
+    float: right;
+    margin-right: 15%;
+}
+
+#documental{}
+
+#documental.ui-body-a, #documental.ui-overlay-a {
+    background: url(images/documental_bck.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+#documental .ui-body-a, #documental .ui-overlay-a {
+    background: url(images/documental_bck.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+.ui-body-a #nav-panel, .ui-overlay-a #nav-panel{
+    background: #1B4C87 !important;
+}
+
+#documental h2{
+    color: white;
+    text-shadow: 0 1px #3373a5;
+    text-align: center;
+    font-weight: 100;
+    font-size: 1.2em;
+}
+
+#documental .play{
+    position: absolute;
+    top: 44%;
+    width: 24%;
+    left: 36%;
+}
+#documental .play img{
+    display: block;
+    width: 100%;
+    margin: auto;
+}
+
+#documental .redes{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+#documental .redes_right{
+    float: right;
+    overflow: hidden;
+    margin-right: 5%;
+}
+
+#documental .redes img{
+    display: block;
+    float: left;
+}
+
+#documental .redes a{
+    width: 40px;
+    display: block;
+    float: left;
+    background: url(images/documental_redes.png);
+    height: 38px;
+    background-size: auto 100%;
+    margin-right: 10px;
+    text-indent: -9999em;
+}
+
+#documental .redes .Facebook{}
+#documental .redes .Twitter{
+    background-position: -50px 0px;
+}
+#documental .redes .Google{
+    background-position: -101px 0;
+}
+#documental .redes .Email{
+    background-position: -150px;
+}
+
+#vital40{}
+
+.vital40{
+    width: 91%;
+    position: absolute;
+    overflow: hidden;
+}
+
+#vital40.ui-body-a, #vital40.ui-overlay-a, #vital40 .ui-body-a, #vital40 .ui-overlay-a{
+    background: url(images/vital40_bck.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.text_box{
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: auto;
+}
+
+.text_box.margin{
+    margin-top: 50%;
+}
+
+.text_box h2{
+    color: #02397a;
+    margin: 0;
+    font-size: 1.3em;
+    text-align: justify;
+}
+.text_box h3{
+    text-align: justify;
+    color: #02397a;
+    margin: 0;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.text_box p{
+    color: #8f8e8e;
+    font-size: 0.9em;
+}
+
+.margin_arrow{
+    position: fixed;
+    bottom: 11px;
+    width: 90%;
+    display: block;
+    z-index: 4;
+}
+.margin_arrow img{
+    display: block;
+    margin: auto;
+}
+#vital40 .Vlogo{
+    display: block;
+    margin: auto;
+}
+
+/*panel*/
+.ui-panel {
+    background: #1B4C87;
+}
+.ui-panel-inner{
+    padding: 0;
+}
+.ui-body-a .ui-panel .ui-link {
+    color: white;
+}
+.ui-panel ul {
+    padding: 0;
+}
+.ui-panel ul li {
+    list-style: none outside none;
+}
+.ui-panel ul li a {
+    color: #FFFFFF;
+    display: block;
+    font-size: 1em;
+    padding: 10px 0 10px 10%;
+    text-decoration: none;
+    width: 90%;
+}
+.ui-panel ul li a:hover{
+    background: #133B68;
+}
+/*EOF panel*/
