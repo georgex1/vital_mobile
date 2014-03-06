@@ -18,8 +18,8 @@ body{
 }
 
 .page{
-    background: url(images/background.png) 0 0 no-repeat;
-    background-size: 100% 100%;
+    /*background: url(images/background.png) 0 0 no-repeat;
+    background-size: 100% 100%;*/
 }
 
 /*sobrescribir reglas jquery mobile theme*/
@@ -119,6 +119,24 @@ button{
     background-size: 100% 100%;
 }
 
+.ui-body-a, .ui-overlay-a{
+}
+
+.ui-content{
+    
+}
+
+/*.ui-panel-content-wrap{
+    height: 92%;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+}*/
+
+.ui-mobile, .ui-mobile body {
+    
+}
+
 #latidos .ui-body-a, #latidos .ui-overlay-a{
     overflow: hidden;
 }
@@ -203,7 +221,7 @@ h1.ui-title{
 }
 
 .latidos{
-    height: 80%;    
+    height: 76%;    
 }
 #footer_logo{
     height: 15%;
@@ -232,6 +250,7 @@ h1.ui-title{
     color: white;
 }
 .latidos p{
+    text-align: center;
     width: 38%;
     margin: auto;
     margin-top: 5px;
@@ -480,12 +499,13 @@ h1.ui-title{
 
 /*panel*/
 .ui-panel {
+    width: 17em !important;
     background: #1B4C87;
 }
 .ui-panel-inner{
-    float: right;
     padding: 0;
-    width: 85%;
+    /*float: right;
+    width: 85%;*/
 }
 .ui-body-a .ui-panel .ui-link {
     color: white;
