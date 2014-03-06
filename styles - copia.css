@@ -107,16 +107,9 @@ button{
 }
 
 .ui-body-a, .ui-overlay-a{
-    height: 91%;
-    width: 100%;
-    position: absolute;
     background: none;
     background: url(images/background.png) 0 0 no-repeat;
     background-size: 100% 100%;
-}
-
-#latidos .ui-body-a, #latidos .ui-overlay-a{
-    overflow: hidden;
 }
 
 .main_menu{
@@ -183,34 +176,25 @@ h1.ui-title{
     font-weight: 100;
 }
 
-.ui-content {
-    height: 93%;
-    padding: 5%;
-}
-
 #latidos .ui-content{
-    height: 93%;
     background: url(images/mask.png);
+    /*height: 88.6%;*/
+    position: absolute;
+    width: 100%;
+    padding: 5% 0 0;
 }
 
 #latidos.ui-body-a, #latidos.ui-overlay-a {
     background-size: 100% 100%;
+    overflow: hidden;
 }
 
 .latidos{
-    height: 80%;    
+    
 }
-#footer_logo{
-    height: 15%;
-}
-#footer_logo h1{
-    height: 100%;
-}
-
 .latidos a{
     display: block;
     margin: auto;
-    height: 35%;
     width: 40%;
     text-decoration: none;
     text-align: center;
@@ -221,9 +205,9 @@ h1.ui-title{
 }
 .latidos a span{
     top: 30px;
-    left: 12px;
+    left: 16%;
     position: absolute;
-    font-size: 0.8em;
+    font-size: 0.9em;
     color: white;
 }
 .latidos p{
@@ -233,8 +217,9 @@ h1.ui-title{
     color: white;
     font-size: 0.8em;
     background: #FAA31B;
-    padding: 3px 1%;
+    padding: 2%;
     position: relative;
+    text-align: center;
 }
 .latidos p.pb{
     background: #F87D1A;
@@ -257,7 +242,7 @@ h1.ui-title{
 }
 #escuchar .ui-content{
     padding: 0;
-    height: 91%;
+    /*height: 94%;*/
     width: 100%;
     position: absolute;
     overflow: hidden;
@@ -375,10 +360,10 @@ h1.ui-title{
 }
 
 #documental .redes{
+    bottom: 10px;
     position: absolute;
-    bottom: 0;
     width: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 #documental .redes_right{
@@ -390,6 +375,7 @@ h1.ui-title{
 #documental .redes img{
     display: block;
     float: left;
+    margin-top: -10px;
 }
 
 #documental .redes a{
