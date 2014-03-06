@@ -107,7 +107,7 @@ button{
 }
 
 .ui-body-a, .ui-overlay-a{
-    height: 91%;
+    height: 92%;
     width: 100%;
     position: absolute;
     background: none;
@@ -169,6 +169,7 @@ button{
 
 .ui-bar-a {
     background: #1B4C87;
+    height: 7%;
 }
 
 .ui-header .ui-title, .ui-footer .ui-title {
@@ -184,12 +185,12 @@ h1.ui-title{
 }
 
 .ui-content {
-    height: 93%;
+    height: 94%;
     padding: 5%;
 }
 
 #latidos .ui-content{
-    height: 93%;
+    /*height: 93%;*/
     background: url(images/mask.png);
 }
 
@@ -211,7 +212,7 @@ h1.ui-title{
     display: block;
     margin: auto;
     height: 35%;
-    width: 40%;
+    /*width: 40%;*/
     text-decoration: none;
     text-align: center;
     position: relative;
@@ -221,7 +222,7 @@ h1.ui-title{
 }
 .latidos a span{
     top: 30px;
-    left: 12px;
+    left: 35%;
     position: absolute;
     font-size: 0.8em;
     color: white;
@@ -478,7 +479,9 @@ h1.ui-title{
     background: #1B4C87;
 }
 .ui-panel-inner{
+    float: right;
     padding: 0;
+    width: 85%;
 }
 .ui-body-a .ui-panel .ui-link {
     color: white;
