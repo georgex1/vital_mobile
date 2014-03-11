@@ -429,7 +429,8 @@ h1.ui-title{
 
 #mix_repro.ui-body-a, #mix_repro.ui-overlay-a, #mix_repro .ui-body-a, #mix_repro .ui-overlay-a{
     /*background: url(images/mix_reproductor.png) left 0 no-repeat;*/
-    background: url(images/trans1.png) left 0 repeat;
+    /*background: url(images/trans1.png) left 0 repeat;*/
+    background: url(images/background_trans.png) 100% 100% repeat;
 }
 
 .reproductor{
