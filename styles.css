@@ -80,12 +80,31 @@ button{
 .form{
     display: block;
     margin-top: 20px;
+    overflow: hidden;
 }
+
+.page .form p{
+    overflow: hidden;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.bago{
+    overflow: hidden;
+    position: absolute;
+    bottom: 20px;
+    width: 89%;
+}
+
+.bago_center{
+    width: 47%;
+    margin: auto;
+}
+
 .page .form input{
     border: none;
     background: white;
     border-bottom: 3px solid #DB6C02 !important;
-    width: 70% !important;
+    width: 60% !important;
     margin: auto !important;
     text-align: center;
     color: #9B938B;
@@ -97,7 +116,7 @@ button{
     background: #20406B;
     border: none;
     padding: 0.4em;
-    width: 74% !important;
+    width: 64% !important;
     border-bottom: 3px solid #DB6C02 !important;
 }
 
@@ -106,7 +125,11 @@ button{
     margin: auto;
 }
 #code #code_content p img, #home #code_content h1 img{
-    margin-top: 15%;
+    /*margin-top: 15%;*/
+}
+
+#home #code_content h1 img{
+    width: 68%;
 }
 
 .ui-body-a, .ui-overlay-a{
@@ -211,6 +234,11 @@ h1.ui-title{
     padding: 5%;
 }
 
+#mix_repro .ui-content {
+    padding: 0;
+    height: 100%;
+}
+
 #latidos .ui-content{
     height: 94%;
     background: url(images/mask.png);
@@ -226,6 +254,11 @@ h1.ui-title{
 #footer_logo{
     height: 15%;
 }
+
+#mix_repro #footer_logo{
+    height: 13%;
+}
+
 #footer_logo h1{
     height: 100%;
 }
@@ -281,13 +314,30 @@ h1.ui-title{
 }
 #escuchar .ui-content{
     padding: 0;
-    height: 91%;
+    height: 100%;
     width: 100%;
     position: absolute;
     overflow: hidden;
 }
 .escuchar{
     height: 100%;
+}
+
+
+.escuchar .reproductor_display{
+    border: none;
+    height: 55%;
+}
+
+.escuchar #footer_logo{
+    position: absolute;
+    bottom: 10%;
+    height: 22%;
+}
+
+.escuchar .footer_logo_abs{
+    width: 21%;
+    margin: auto;
 }
 
 #escuchar_top{
@@ -300,7 +350,7 @@ h1.ui-title{
     position: relative;
     width: 100%;
     background: #FFBE75;
-    background: url(images/escuchar_play.png);
+    background: url(images/trans1.png) left 0 repeat;
     background-size: 100% 100%;
 }
 #escuchar_bottom img{
@@ -313,6 +363,43 @@ h1.ui-title{
     bottom: 8%;
     position: absolute;
 }
+
+.escuchar_controls{
+    height: 100%;
+    position: relative;
+}
+
+.escuchar_controls_share{
+    height: 17%;
+    left: 10%;
+    position: absolute;
+    top: 52%;
+}
+.escuchar_controls_play{
+    height: 17%;
+    position: absolute;
+    top: 52%;
+    right: 10%;
+}
+
+#share_options{
+    display: none;
+    background: url(images/redes.png) no-repeat;
+    background-size: auto 85%;
+    position: absolute;
+    top: -22%;
+    left: 10%;
+    height: 85%;
+    width: 15%;
+}
+#share_options a{
+    display: block;
+    opacity: 0;
+    height: 21%;
+    width: 100%;
+}
+
+#escuchar_control{}
 
 #mix{
     
@@ -336,23 +423,30 @@ h1.ui-title{
     color: #838383;
     font-size: 1.7em;
     font-weight: 100;
-    margin-top: 5px;
+    margin-top: 6%;
+    margin-bottom: 4%;
 }
 
 #mix_repro.ui-body-a, #mix_repro.ui-overlay-a, #mix_repro .ui-body-a, #mix_repro .ui-overlay-a{
-    background: url(images/mix_reproductor.png) left 0 no-repeat;
-    background-size: 100% 100%;
+    /*background: url(images/mix_reproductor.png) left 0 no-repeat;*/
+    background: url(images/trans1.png) left 0 repeat;
+}
+
+.reproductor{
+    height: 78%;
 }
 
 .reproductor_opts{
     position: absolute;
-    bottom: 5%;
-    width: 90%;
+    top: 66%;
+    height: 16%;
+    width: 100%;
 }
 .reproductor_opts a{
     width: 26%;
     display: block;
     margin: auto;
+    height: 100%;
 }
 .reproductor_opts a.reproductor_opts_cancel{
     float: left;
@@ -361,6 +455,35 @@ h1.ui-title{
 .reproductor_opts a.reproductor_opts_ok{
     float: right;
     margin-right: 15%;
+}
+
+.reproductor_display_ctn{
+    width: 90%;
+    margin: auto;
+}
+
+.reproductor_display{
+    height: 40%;
+    overflow: hidden;
+    width: 90%;
+    position: absolute;
+    padding: 6% 0;
+    border-top: 1px solid #DABE65;
+    border-bottom: 1px solid #DABE65;
+}
+
+#reproductor_display_beat{
+    position: absolute;
+    margin-top: 5%;
+    height: 82%;
+    width: 100%;
+    text-align: center;
+}
+#reproductor_display_bck{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 82%;
 }
 
 #documental{}
@@ -400,7 +523,7 @@ h1.ui-title{
 
 #documental .redes{
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     width: 100%;
     overflow: hidden;
 }
@@ -444,6 +567,7 @@ h1.ui-title{
     width: 91%;
     position: absolute;
     overflow: hidden;
+    height: 92%;
 }
 
 #vital40.ui-body-a, #vital40.ui-overlay-a, #vital40 .ui-body-a, #vital40 .ui-overlay-a{
@@ -452,32 +576,32 @@ h1.ui-title{
 }
 
 .text_box{
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(246, 192, 62, 1);
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 10px 20px 10%;
     margin: auto;
 }
 
 .text_box.margin{
-    margin-top: 50%;
+    margin-top: 90%;
 }
 
 .text_box h2{
-    color: #02397a;
+    color: white;
     margin: 0;
     font-size: 1.3em;
     text-align: justify;
 }
 .text_box h3{
     text-align: justify;
-    color: #02397a;
+    color: white;
     margin: 0;
     font-size: 0.9em;
     text-transform: uppercase;
 }
 
 .text_box p{
-    color: #8f8e8e;
+    color: white;
     font-size: 0.9em;
 }
 
@@ -495,6 +619,13 @@ h1.ui-title{
 #vital40 .Vlogo{
     display: block;
     margin: auto;
+    margin-bottom: 10px;
+}
+
+#vital40 .Blogo{
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
 }
 
 /*panel*/

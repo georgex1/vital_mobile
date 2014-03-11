@@ -15,24 +15,6 @@
         
         <script type="text/javascript" src="phonegap.js"></script>
         
-        <script type="text/javascript">
-        $(document).ready(function(){
-            $('.vital40').height($(window).height()*1-60);
-            $('.escuchar_content').height($(window).height()*1-42);
-            $('.latidos_content').height($(window).height()*1-42);
-            
-            $('.margin_arrow').click(function(){
-                $('.text_box').animate({'margin-top': '0'}, 500);
-                $('.margin_arrow').hide();
-            });
-            
-            $('#code_form').submit(function(){
-                $.mobile.changePage( "#home", {transition: "slide"});
-                return false;
-            });
-        });
-        </script>
-        
     </head>
     <body>
     
@@ -41,7 +23,7 @@
             <div data-role="content">
                 <div id="code_content">
                     <h1><img src="images/logo.png" width="80%" /></h1>
-                    <p><img src="images/slogan.png" width="80%" /></p>
+                    <p><img src="images/slogan.png" width="70%" /></p>
                 </div><!--code_content-->
                 <div class="form">
                     <form method="post" action="#" id="code_form">
@@ -49,6 +31,7 @@
                         <p><button type="submit">Ingresar</button></p>
                     </form>
                 </div><!--form-->
+                <div class="bago"><div class="bago_center"><img src="images/bago_logo.png" width="100%" /></div></div>
             </div>
         </div><!--code-->
     
@@ -65,6 +48,7 @@
                         <li class="item_vital40 last"><a href="#vital40" data-transition="none">Vital 40</a></li>
                     </ul>
                 </div><!--form-->
+                <div class="bago"><div class="bago_center"><img src="images/bago_logo.png" width="100%" /></div></div>
             </div>
         </div><!--home-->
         
@@ -110,13 +94,40 @@
             <div data-role="content">
                 <div class="escuchar">
                     <div id="escuchar_top">
-                        <img src="images/lady.png" width="100%" />
+                        <img src="images/lady.png" height="100%" width="100%" />
                     </div><!--escuchar_top-->
                     
                     <div id="escuchar_bottom">
-                        <!--<img src="images/escuchar_play.png" height="100%" />-->
-                        <img src="images/escuchando.png" height="100%" />
-                        <a href="#" id="pausa"><img src="images/pausa.png" width="100%" /></a>
+                    
+                        <div class="reproductor_display_ctn">
+                            <div class="reproductor_display">
+                                <div id="reproductor_display_bck">
+                                    <img src="images/reproductor.png" height="101%" />
+                                </div><!--reproductor_display_bck-->
+                                <div id="reproductor_display_beat">
+                                    <img src="images/beat.png" id="escuchar_beat" height="79%" width="100%" />
+                                    <!--<img src="images/beat.gif" height="86%" width="100%" />-->
+                                </div><!--reproductor_display_beat-->
+                            </div><!--reproductor_display-->
+                        </div><!--reproductor_display_ctn-->
+                        
+                        <div class="escuchar_controls">
+                            <div id="share_options">
+                                <a href="#">F</a>
+                                <a href="#">T</a>
+                                <a href="#">G</a>
+                                <a href="#">M</a>
+                            </div><!--share_options-->
+                            <a href="#" class="escuchar_controls_share" id="escuchar_controls_share"><img src="images/share_btn.png" height="100%" /></a>
+                            <a href="#" class="escuchar_controls_play" id="escuchar_control"><img src="images/escuchar_play.png" height="100%" /></a>
+                        </div><!--escuchar_controls-->
+                        
+                        <div class="footer_logo_abs">
+                            <div id="footer_logo">
+                                <h1><img src="images/logo.png" height="100%" /></h1>
+                            </div>
+                        </div>
+                        
                     </div><!--escuchar_bottom-->
                 </div><!--escuchar-->
             </div>
@@ -171,11 +182,28 @@
             <div data-role="content">
                 <div class="reproductor">
                     <h2>Música 1</h2>
+                    
+                    <div class="reproductor_display_ctn">
+                        <div class="reproductor_display">
+                            <div id="reproductor_display_bck">
+                                <img src="images/reproductor.png" height="101%" />
+                            </div><!--reproductor_display_bck-->
+                            <div id="reproductor_display_beat">
+                                <img src="images/beat.gif" height="86%" width="100%" />
+                            </div><!--reproductor_display_beat-->
+                        </div><!--reproductor_display-->
+                    </div><!--reproductor_display_ctn-->
+                    
                     <div class="reproductor_opts">
-                        <a href="#" class="reproductor_opts_cancel"><img src="images/mix_cancel.png" width="100%" /></a>
-                        <a href="#" class="reproductor_opts_ok"><img src="images/mix_ok.png" width="100%" /></a>
+                        <a href="#" class="reproductor_opts_cancel"><img src="images/mix_cancel.png" height="100%" /></a>
+                        <a href="#" class="reproductor_opts_ok"><img src="images/mix_ok.png" height="100%" /></a>
                     </div><!--reproductor_opts-->
                 </div><!--reproductor-->
+                
+                <div id="footer_logo">
+                    <h1><img src="images/logo.png" height="100%" /></h1>
+                </div>
+                
             </div>
             
             <div data-role="panel" data-position="right" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
@@ -191,13 +219,13 @@
         <!-- documental -->
         <div data-role="page" data-theme="a" id="documental" class="page">
             <div data-theme="a" data-role="header" data-position="fixed">
-                <h1>Mix Audio</h1>
+                <h1>Experimento</h1>
                 <a href="javascript:;" onclick="history.back();" ><img src="images/menu_flecha.png" width="20" /></a>
                 <a href="#nav-panel" ><img src="images/menu_opciones.png" width="20" /></a>
             </div><!--header-->
             <div data-role="content">
                 <div class="documental">
-                    <h2>MIRA EL DOCUMENTAL</h2>
+                    <!--<h2>MIRA EL DOCUMENTAL</h2>-->
                     <a href="#" class="play"><img src="images/documental_play.png" width="100%" /></a>
                     
                     <div class="redes">
@@ -232,10 +260,11 @@
             <div data-role="content">
                 <div class="vital40">
                     <div class="text_box margin">
+                        <img class="Vlogo" src="images/logo.png" width="45%" />
                         <h2>CUMPLIMOS 40 AÑOS</h2>
                         <h3>Acompañando a las madres</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dictum, nulla eu dapibus vestibulum, magna turpis venenatis nibh, in auctor metus magna at sem. Sed quis accumsan felis. Fusce cursus egestas augue vitae pulvinar. Praesent semper ullamcorper elit eu cursus magna turpis venenatis nibh, in auctor metus magna at sem. Sed quis accumsan felis. Fusce cursus egestas augue vitae pulvinar. Praesent semper ullamcorper elit eu cursus.. </p>
-                        <img class="Vlogo" src="images/logo.png" width="35%" />
+                        <img class="Blogo" src="images/bago_logo.png" width="45%" />
                     </div><!--text_box-->
                     <a href="#" class="margin_arrow"><img src="images/vital40_arrow.png" width="10%" /></a>
                 </div><!--vital40-->
@@ -254,4 +283,5 @@
         <div id="fb-root"></div>
         
     </body>
+    
 </html>
