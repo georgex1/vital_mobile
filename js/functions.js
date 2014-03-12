@@ -50,7 +50,7 @@ function page_events(){
                     media.play();
                     console.log('escuchar con mp3: '+latidosMp3);
                 });
-                if(latidosMp3 == '' || latidosMp3 == 'null'){
+                if(latidosMp3 == '' || latidosMp3 == null){
                     console.log('descargar latido con mp3: '+'latidos_musica/'+LatidosData.latidosmp3);
                     downloadFcn('latidos_musica/'+LatidosData.latidosmp3, 'mp3');
                 }
@@ -119,7 +119,7 @@ function page_events(){
     
     $( "#latidos" ).on( "pageshow", function( event, ui ) {
         console.log(LatidosData);
-        if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != 'null'){
+        if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
             $('#escuchar_latidoMusica img').attr('src', 'images/latido_musica_active.png');
             $('#escuchar_latidoMusica span').remove();
             
