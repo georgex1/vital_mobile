@@ -1,6 +1,6 @@
 var fileSystem;
 var filePaht_ = '';
-var isPhonegap = false;
+var isPhonegap = true;
 var PathUrl = 'http://www.thepastoapps.com/proyectos/vital/';
 var responseUrl = PathUrl+'response.php';
 var imageUrl = '';
@@ -25,7 +25,7 @@ function startup(){
         window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
     }
-    
+    page_events();
 }
 
 function page_events(){
