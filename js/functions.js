@@ -48,7 +48,7 @@ function page_events(){
                     media = new Media(latidosMp3, null, function(e) { alert(JSON.stringify(e));});
                     media.play();
                 });
-                if(latidosMp3 == ''){
+                if(latidosMp3 == '' || latidosMp3 == 'null'){
                     downloadFcn('latidos_musica/'+LatidosData.latidosmp3, 'mp3');
                 }
             }
@@ -114,7 +114,7 @@ function page_events(){
     });
     
     $( "#latidos" ).on( "pageshow", function( event, ui ) {
-        if(LatidosData.latidosmp3 != ''){
+        if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != 'null'){
             $('#escuchar_latidoMusica img').attr('src', 'images/latido_musica_active.png');
             $('#escuchar_latidoMusica span').remove();
             
@@ -193,11 +193,13 @@ function openErrorPopup(mjs){
 
 function downloadFcn(file_name_, type_) {
     
+    var type2_ = type_;
     var ft = new FileTransfer();
     var uri = encodeURI(PathUrl+file_name_);
 
     var downloadPath = filePaht_ + "/vital/"+file_name_;
-    
+    console.log('downloadPath: ' + downloadPath);
+    console.log('downloadUrl: ' + PathUrl+file_name_);
     /*ft.onprogress = function(progressEvent) {
         if (progressEvent.lengthComputable) {
             var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
@@ -213,9 +215,9 @@ function downloadFcn(file_name_, type_) {
 
     ft.download(uri, downloadPath, 
     function(entry) {
-        if(type_ == 'image')
+        if(type2_ == 'image')
             imageUrl = entry.fullPath;
-        else if(type_ == 'mp3'){
+        else if(type2_ == 'mp3'){
             latidosMp3 = entry.fullPath;
             
             media = new Media(latidosMp3, null, function(e) { alert(JSON.stringify(e));});
