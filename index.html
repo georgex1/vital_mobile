@@ -27,7 +27,7 @@
                 </div><!--code_content-->
                 <div class="form">
                     <form method="post" action="#" id="code_form">
-                        <p><input type="text" placeholder="CÓDIGO" name="codigo" /></p>
+                        <p><input type="text" placeholder="CÓDIGO" name="codigo" id="Icode" /></p>
                         <p><button type="submit">Ingresar</button></p>
                     </form>
                 </div><!--form-->
@@ -44,8 +44,8 @@
                 <div class="main_menu">
                     <ul>
                         <li class="item_escuchar"><a href="#latidos" data-transition="none">Escuchar Latidos</a></li>
-                        <li class="item_documental"><a href="#documental" data-transition="none">Documental</a></li>
-                        <li class="item_vital40 last"><a href="#vital40" data-transition="none">Vital 40</a></li>
+                        <li class="item_documental"><a href="#documental" data-transition="none">Experimento</a></li>
+                        <li class="item_vital40 last"><a href="#vital40" data-transition="none">Vital</a></li>
                     </ul>
                 </div><!--form-->
                 <div class="bago"><div class="bago_center"><img src="images/bago_logo.png" width="100%" /></div></div>
@@ -61,10 +61,10 @@
             </div><!--header-->
             <div data-role="content">
                 <div class="latidos">
-                    <a href="#escuchar" data-transition="none"><img src="images/latido.png" height="100%" /></a>
+                    <a href="#escuchar" data-transition="none" onclick="escuchar = 'bpm';"><img src="images/latido.png" height="100%" /></a>
                     <p><span></span>Escuchá el latido</p>
                     
-                    <a href="#escuchar" data-transition="none"><img src="images/latido_musica.png" height="100%" /><span>Agregale <br />música a los <br />latidos.</span></a>
+                    <a href="javascript:;" data-transition="none" onclick="escuchar = 'musica';" id="escuchar_latidoMusica"><img src="images/latido_musica.png" height="100%" /><span>Agregale <br />música a los <br />latidos.</span></a>
                     <p class="pb"><span></span>Escuchá el latido <br />con música</p>
                 </div><!--latidos-->
                 
@@ -151,12 +151,13 @@
             </div><!--header-->
             <div data-role="content">
                 <div class="main_menu">
-                    <ul>
-                        <li class="item_musica"><a href="#mix_repro" data-transition="none">Musica 1</a></li>
-                        <li class="item_musica"><a href="#mix_repro" data-transition="none">Musica 1</a></li>
-                        <li class="item_musica"><a href="#mix_repro" data-transition="none">Musica 1</a></li>
-                        <li class="item_musica"><a href="#mix_repro" data-transition="none">Musica 1</a></li>
-                        <li class="item_musica last"><a href="#mix_repro" data-transition="none">Musica 1</a></li>
+                    <ul id="musicList">
+                        <li class="item_musica"><a href="#mix_repro" data-transition="none" rel="music1">Musica 1</a></li>
+                        <li class="item_musica"><a href="#mix_repro" data-transition="none" rel="music2">Musica 2</a></li>
+                        <li class="item_musica"><a href="#mix_repro" data-transition="none" rel="music3">Musica 3</a></li>
+                        <li class="item_musica"><a href="#mix_repro" data-transition="none" rel="music4">Musica 4</a></li>
+                        <li class="item_musica last"><a href="#mix_repro" data-transition="none" rel="music5">Musica 5</a></li>
+                        
                         <li class="item_logo last"><img src="images/logo.png" width="40%" /></li>
                     </ul>
                 </div><!--main_menu-->
