@@ -128,25 +128,29 @@ function page_events(){
     });
     
     $( "#latidos" ).on( "pageshow", function( event, ui ) {
-        $('#escuchar_latidos').on('tap', function(){
-            escuchar = 'bpm'
-        });
-        
+
         console.log(LatidosData);
-        if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
-            $('#escuchar_latidoMusica img').attr('src', 'images/latido_musica_active.png');
-            $('#escuchar_latidoMusica span').remove();
-            
-            $('#escuchar_latidoMusica').on('tap', function(){
-                escuchar = 'musica';
-                $.mobile.changePage( "#escuchar", {transition: "none"});
-            });
-        }else{
-            $('#escuchar_latidoMusica').on('tap', function(){
-                escuchar = 'musica';
-                $.mobile.changePage( "#mix", {transition: "none"});
-            });
+        if(LatidosData){
+            if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
+                $('#escuchar_latidoMusica img').attr('src', 'images/latido_musica_active.png');
+                $('#escuchar_latidoMusica span').remove();
+                
+                $('#escuchar_latidoMusica').on('tap', function(){
+                    escuchar = 'musica';
+                    $.mobile.changePage( "#escuchar", {transition: "none"});
+                });
+            }else{
+                $('#escuchar_latidoMusica').on('tap', function(){
+                    escuchar = 'musica';
+                    $.mobile.changePage( "#mix", {transition: "none"});
+                });
+            }
         }
+    });
+    
+    $('#escuchar_latidos').on('tap', function(){
+        escuchar = 'bpm';
+        $.mobile.changePage( "#escuchar", {transition: "none"});
     });
     
     $( "#escuchar" ).on( "pageshow", function( event, ui ) {
