@@ -28,6 +28,16 @@ function startup(){
     page_events();
 }
 
+function stopMainAudio(){
+    $(this).addClass('active');
+    $(this).find('img').attr('src', 'images/escuchar_pause.png');
+    $('#escuchar_beat').attr('src', 'images/beat.gif');
+    if(media){
+        media.stop();
+        media = null;
+    }
+}
+
 function page_events(){
     
     $('#escuchar_control').on('tap', function(){
@@ -56,7 +66,8 @@ function page_events(){
                 });*/
                 
                 
-                media = new Media('/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
+                //media = new Media('/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
+                media = new Media(getPhoneGapPath()+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', stopMainAudio(), function(e) { alert(JSON.stringify(e));});
                 media.play();
                 
             }else{
@@ -64,7 +75,7 @@ function page_events(){
                 $.get(filePaht_ + "/vital/"+LatidosData.latidosmp3).done(function(){
                     latidosMp3 = filePaht_ + "/vital/"+latidosmp3;
                     
-                    media = new Media(latidosMp3, null, function(e) { alert(JSON.stringify(e));});
+                    media = new Media(latidosMp3, stopMainAudio(), function(e) { alert(JSON.stringify(e));});
                     media.play();
                     console.log('escuchar con mp3: '+latidosMp3);
                 });
@@ -75,13 +86,7 @@ function page_events(){
             }
             
         }else{
-            $(this).addClass('active');
-            $(this).find('img').attr('src', 'images/escuchar_pause.png');
-            $('#escuchar_beat').attr('src', 'images/beat.gif');
-            if(media){
-                media.stop();
-                media = null;
-            }
+            stopMainAudio()
         }
     });
     
@@ -284,7 +289,7 @@ function downloadFcn(file_name_, type_) {
         }else if(type2_ == 'mp3'){
             latidosMp3 = entry.fullPath;
             
-            media = new Media(latidosMp3, null, function(e) { alert(JSON.stringify(e));});
+            media = new Media(latidosMp3, stopMainAudio(), function(e) { alert(JSON.stringify(e));});
             media.play();
             $.mobile.loading('hide');
         }
@@ -299,4 +304,11 @@ function gotFS(fileSystem) {
 }
 function fail(){
     console.log('fail to get filepath');
+}
+
+getPhoneGapPath: function () {
+    'use strict';
+    var path = window.location.pathname;
+    var phoneGapPath = path.substring(0, path.lastIndexOf('/') + 1);
+    return phoneGapPath;
 }
