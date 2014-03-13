@@ -199,7 +199,7 @@ function page_events(){
             type: "POST",
             dataType: 'json',
             callback: 'callback',
-            data: 'mobile=1&action=latidosmp3&latidos_bpm='+LatidosData.bpm_latidos+'&musica='+selMusic+'&Uid='+LatidosData.id,
+            data: 'mobile=1&action=latidosmp3&latidos_bpm='+LatidosData.beat_ratio+'&musica='+selMusic+'&Uid='+LatidosData.id,
             success: function(data){
                 if(data.error == ''){
                     escuchar_ = 'musica';
