@@ -39,7 +39,7 @@ function page_events(){
             if(escuchar == 'bpm'){
                 console.log('escuchar bpm: '+'latidos/'+LatidosData.beat_ratio+'bpm.mp3');
                 
-                /*$.get('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
+                $.get('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
                     console.log('etsta en '+'/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
                 });
                 $.get('/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
@@ -47,7 +47,7 @@ function page_events(){
                 });
                 $.get('/asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
                     console.log('etsta en '+'/asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
-                });*/
+                });
                 
                 
                 media = new Media('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
@@ -128,21 +128,25 @@ function page_events(){
     });
     
     $( "#latidos" ).on( "pageshow", function( event, ui ) {
-        console.log(LatidosData);
-        $.mobile.changePage( "#escuchar", {transition: "none"});
+        $('#escuchar_latidos').on('tap', function(){
+            escuchar = 'bpm'
+        });
         
-        /*if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
+        console.log(LatidosData);
+        if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
             $('#escuchar_latidoMusica img').attr('src', 'images/latido_musica_active.png');
             $('#escuchar_latidoMusica span').remove();
             
             $('#escuchar_latidoMusica').on('tap', function(){
+                escuchar = 'musica';
                 $.mobile.changePage( "#escuchar", {transition: "none"});
             });
         }else{
             $('#escuchar_latidoMusica').on('tap', function(){
+                escuchar = 'musica';
                 $.mobile.changePage( "#mix", {transition: "none"});
             });
-        }*/
+        }
     });
     
     $( "#escuchar" ).on( "pageshow", function( event, ui ) {
