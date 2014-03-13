@@ -67,7 +67,7 @@ function page_events(){
                 
                 
                 //media = new Media('/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
-                media = new Media(getPhoneGapPath()+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', stopMainAudio(), function(e) { alert(JSON.stringify(e));});
+                media = new Media(getPhoneGapPath()+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', "stopMainAudio()", function(e) { alert(JSON.stringify(e));});
                 media.play();
                 
             }else{
@@ -75,7 +75,7 @@ function page_events(){
                 $.get(filePaht_ + "/vital/"+LatidosData.latidosmp3).done(function(){
                     latidosMp3 = filePaht_ + "/vital/"+latidosmp3;
                     
-                    media = new Media(latidosMp3, stopMainAudio(), function(e) { alert(JSON.stringify(e));});
+                    media = new Media(latidosMp3, "stopMainAudio()", function(e) { alert(JSON.stringify(e));});
                     media.play();
                     console.log('escuchar con mp3: '+latidosMp3);
                 });
@@ -289,7 +289,7 @@ function downloadFcn(file_name_, type_) {
         }else if(type2_ == 'mp3'){
             latidosMp3 = entry.fullPath;
             
-            media = new Media(latidosMp3, stopMainAudio(), function(e) { alert(JSON.stringify(e));});
+            media = new Media(latidosMp3, "stopMainAudio()", function(e) { alert(JSON.stringify(e));});
             media.play();
             $.mobile.loading('hide');
         }
