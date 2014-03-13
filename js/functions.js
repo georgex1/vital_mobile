@@ -291,10 +291,8 @@ function fail(){
 }
 
 function getPhoneGapPath(){
-    alert(window.location.pathname);
-    return '/android_assets/www';
-    /*'use strict';
+    /*'use strict';*/
     var path = window.location.pathname;
     var phoneGapPath = path.substring(0, path.lastIndexOf('/') + 1);
-    return phoneGapPath;*/
+    return phoneGapPath;
 }
