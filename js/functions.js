@@ -268,9 +268,10 @@ function downloadFcn(file_name_, type_) {
         openErrorPopup('Ocurrio un error, por favor intentalo de nuevo.');    
     });
     
+    $('#popup_content').html('<p id="status"></p>');
+    $('#popup').show();
+    
     ft.onprogress = function(progressEvent) {
-        $('#popup_content').html('<p id="status"></p>');
-        $('#popup').show();
         if (progressEvent.lengthComputable) {
             var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
             $('#status').html(perc + "% descargando...") ;
