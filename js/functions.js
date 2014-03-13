@@ -8,7 +8,7 @@ var LatidosData = null;
 var media = null;
 var latidosMp3 = '';
 var selMusic = '';
-var escuchar = 'bpm';
+var escuchar_ = 'bpm';
 
 /* Listeners */
 if(isPhonegap){
@@ -36,7 +36,7 @@ function page_events(){
             $(this).find('img').attr('src', 'images/escuchar_play.png');
             $('#escuchar_beat').attr('src', 'images/beat.png');
             //if(LatidosData.latidosmp3 != ''){
-            if(escuchar == 'bpm'){
+            if(escuchar_ == 'bpm'){
                 console.log('escuchar bpm: '+'latidos/'+LatidosData.beat_ratio+'bpm.mp3');
                 
                 /*$.get('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
@@ -135,13 +135,13 @@ function page_events(){
     
     $('#escuchar_latidos').on('tap', function(){
         console.log('#escuchar_latidos');
-        escuchar = 'bpm';
+        escuchar_ = 'bpm';
         $.mobile.changePage( "#escuchar", {transition: "none"});
     });
     
     $('#escuchar_latidoMusica').on('tap', function(){
         console.log('#escuchar_latidoMusica');
-        escuchar = 'musica';
+        escuchar_ = 'musica';
         if(LatidosData){
             if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
                 $('#escuchar_latidoMusica img').attr('src', 'images/latido_musica_active.png');
@@ -159,7 +159,7 @@ function page_events(){
     });
     
     $( "#escuchar" ).on( "pageshow", function( event, ui ) {
-        if(escuchar == 'bpm'){
+        if(escuchar_ == 'bpm'){
             $( "#escuchar_title" ).html('Escuchar latidos');
         }else{
             if(LatidosData.latidosmp3 == '' || LatidosData.latidosmp3 == null){
@@ -205,7 +205,7 @@ function page_events(){
             data: 'mobile=1&action=latidosmp3&latidos_bpm='+LatidosData.bpm_latidos+'&musica='+selMusic+'&Uid='+LatidosData.id,
             success: function(data){
                 if(data.error == ''){
-                    escuchar = 'musica';
+                    escuchar_ = 'musica';
                     latidosMp3 = data.content.latidosmp3;
                     LatidosData.latidosmp3 = data.content.latidosmp3;
                     $.mobile.changePage( "#escuchar", {transition: "none"});
