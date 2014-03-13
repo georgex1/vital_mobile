@@ -30,7 +30,7 @@ function startup(){
 
 function page_events(){
     
-    $('#escuchar_control').on('click', function(){
+    $('#escuchar_control').on('tap', function(){
         if($(this).hasClass('active')){
             $(this).removeClass('active');
             $(this).find('img').attr('src', 'images/escuchar_play.png');
@@ -38,7 +38,7 @@ function page_events(){
             //if(LatidosData.latidosmp3 != ''){
             if(escuchar == 'bpm'){
                 console.log('escuchar bpm: '+'latidos/'+LatidosData.beat_ratio+'bpm.mp3');
-                media = new Media('latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
+                media = new Media('/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
                 media.play();
                 
             }else{
