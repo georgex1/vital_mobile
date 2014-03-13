@@ -39,7 +39,7 @@ function page_events(){
             if(escuchar == 'bpm'){
                 console.log('escuchar bpm: '+'latidos/'+LatidosData.beat_ratio+'bpm.mp3');
                 
-                $.get('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
+                /*$.get('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
                     console.log('etsta en '+'/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
                 });
                 $.get('/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
@@ -51,7 +51,7 @@ function page_events(){
                 
                 
                 media = new Media('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
-                media.play();
+                media.play();*/
                 
             }else{
                 //comprobar y descargar mp3 con latidos
@@ -72,8 +72,10 @@ function page_events(){
             $(this).addClass('active');
             $(this).find('img').attr('src', 'images/escuchar_pause.png');
             $('#escuchar_beat').attr('src', 'images/beat.gif');
-            
-            media.stop();
+            if(media){
+                media.stop();
+                media = null;
+            }
         }
     });
     
@@ -164,7 +166,10 @@ function page_events(){
         }
     });
     $( "#escuchar" ).on( "pagehide", function( event, ui ) {
-        media.stop();
+        if(media){
+            media.stop();
+            media = null;
+        }
     });
     
     $( "#mix_repro" ).on( "pageshow", function( event, ui ) {
@@ -174,7 +179,10 @@ function page_events(){
     });
     
     $( "#mix_repro" ).on( "pagehide", function( event, ui ) {
-        media.stop();
+        if(media){
+            media.stop();
+            media = null;
+        }
     });
     
     $( "#musicList li a" ).on('tap', function(){
