@@ -14,7 +14,7 @@
 }
 
 body{
-    
+    background-color: #212121;
 }
 
 .page{
@@ -141,10 +141,17 @@ button{
     background: url(images/background.png) 0 0 no-repeat;
     background-size: 100% 100%;
 }
-
-#home.ui-body-a{
-    background-color: #212121;
-    background-size: 100% 110%;
+.ui-loader.ui-body-a{
+    background: none;
+    position: relative;
+    height: auto;
+    width: auto;
+}
+#code{
+    overflow: hidden;
+}
+#code .ui-content{
+    height: 84%;
 }
 
 .ui-body-a, .ui-overlay-a{

@@ -122,6 +122,7 @@ function page_events(){
     });
     
     $( "#home" ).on( "pageshow", function( event, ui ) {
+        //$.mobile.loading('show');
         //getPhoneGapPath();
     });
     
