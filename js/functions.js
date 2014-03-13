@@ -126,8 +126,6 @@ function page_events(){
             $('#escuchar_latidoMusica').on('tap', function(){
                 $.mobile.changePage( "#escuchar", {transition: "none"});
             });
-        }else{
-            $.mobile.changePage( "#mix", {transition: "none"});
         }
     });
     
@@ -135,6 +133,9 @@ function page_events(){
         if(escuchar == 'bpm'){
             $( "#escuchar_title" ).html('Escuchar latidos');
         }else{
+            if(LatidosData.latidosmp3 == '' || LatidosData.latidosmp3 == null){
+                $.mobile.changePage( "#mix", {transition: "none"});
+            }
             $( "#escuchar_title" ).html('Escuchar música');
         }
     });
