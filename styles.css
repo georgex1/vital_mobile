@@ -138,11 +138,11 @@ button{
     width: 100%;
     position: absolute;
     background: none;
-    background: #F35400 url(images/background.png) 0 0 no-repeat;
+    background: url(images/background.png) 0 0 no-repeat;
     background-size: 100% 100%;
 }
 
-#home.ui-body-a, home.ui-overlay-a{
+#home.ui-body-a{
     background-size: 100% 110%;
 }
 

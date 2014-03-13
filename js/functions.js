@@ -29,9 +29,9 @@ function startup(){
 }
 
 function stopMainAudio(){
-    $(this).addClass('active');
-    $(this).find('img').attr('src', 'images/escuchar_pause.png');
-    $('#escuchar_beat').attr('src', 'images/beat.gif');
+    $(this).removeClass('active');
+    $(this).find('img').attr('src', 'images/escuchar_play.png');
+    $('#escuchar_beat').attr('src', 'images/beat.png');
     if(media){
         media.stop();
         media = null;
@@ -42,30 +42,17 @@ function page_events(){
     
     $('#escuchar_control').on('tap', function(){
         if($(this).hasClass('active')){
-            $(this).removeClass('active');
-            $(this).find('img').attr('src', 'images/escuchar_play.png');
-            $('#escuchar_beat').attr('src', 'images/beat.png');
+            stopMainAudio();
+            
+        }else{
+            
+            $(this).addClass('active');
+            $(this).find('img').attr('src', 'images/escuchar_pause.png');
+            $('#escuchar_beat').attr('src', 'images/beat.gif');
+            
             //if(LatidosData.latidosmp3 != ''){
             if(escuchar_ == 'bpm'){
                 console.log('escuchar bpm: '+'latidos/'+LatidosData.beat_ratio+'bpm.mp3');
-                
-                /*$.get('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
-                    console.log('etsta en '+'/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
-                });
-                $.get('/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
-                    console.log('etsta en '+'/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
-                });
-                $.get('/asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
-                    console.log('etsta en '+'/asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
-                });
-                $.get(filePaht_+'/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
-                    console.log('etsta en '+filePaht_+'/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
-                });
-                $.get(filePaht_+'/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
-                    console.log('etsta en '+filePaht_+'/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
-                });*/
-                
-                
                 //media = new Media('/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
                 media = new Media(getPhoneGapPath()+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', stopMainAudio, function(e) { alert(JSON.stringify(e));});
                 media.play();
@@ -84,9 +71,6 @@ function page_events(){
                     downloadFcn('latidos_musica/'+LatidosData.latidosmp3, 'mp3');
                 }
             }
-            
-        }else{
-            stopMainAudio()
         }
     });
     
@@ -306,9 +290,11 @@ function fail(){
     console.log('fail to get filepath');
 }
 
-getPhoneGapPath: function () {
-    'use strict';
+function getPhoneGapPath(){
+    alert(window.location.pathname);
+    return '/android_assets/www';
+    /*'use strict';
     var path = window.location.pathname;
     var phoneGapPath = path.substring(0, path.lastIndexOf('/') + 1);
-    return phoneGapPath;
+    return phoneGapPath;*/
 }
