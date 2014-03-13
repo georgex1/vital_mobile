@@ -100,7 +100,7 @@ function page_events(){
             data: 'mobile=1&action=getCode&code='+$('#Icode').val(),
             success: function(data){
                 if(data.error == ''){
-                    
+                    console.log(data);
                     $.get(filePaht_ + "/vital/"+data.content.foto_url).done(function(){
                         imageUrl = filePaht_ + "/vital/"+data.content.foto_url
                         $('#escuchar_top img').attr('src', imageUrl);
@@ -130,34 +130,32 @@ function page_events(){
     });
     
     $( "#latidos" ).on( "pageshow", function( event, ui ) {
-
-        $('#escuchar_latidoMusica').on('tap', function(){
-            escuchar = 'musica';
-            $.mobile.changePage( "#mix", {transition: "none"});
-        });
-        
         console.log(LatidosData);
-        /*if(LatidosData){
+    });
+    
+    $('#escuchar_latidos').on('tap', function(){
+        console.log('#escuchar_latidos');
+        escuchar = 'bpm';
+        $.mobile.changePage( "#escuchar", {transition: "none"});
+    });
+    
+    $('#escuchar_latidoMusica').on('tap', function(){
+        console.log('#escuchar_latidoMusica');
+        escuchar = 'musica';
+        if(LatidosData){
             if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
                 $('#escuchar_latidoMusica img').attr('src', 'images/latido_musica_active.png');
                 $('#escuchar_latidoMusica span').remove();
                 
                 $('#escuchar_latidoMusica').on('tap', function(){
-                    escuchar = 'musica';
                     $.mobile.changePage( "#escuchar", {transition: "none"});
                 });
             }else{
                 $('#escuchar_latidoMusica').on('tap', function(){
-                    escuchar = 'musica';
                     $.mobile.changePage( "#mix", {transition: "none"});
                 });
             }
-        }*/
-    });
-    
-    $('#escuchar_latidos').on('tap', function(){
-        escuchar = 'bpm';
-        $.mobile.changePage( "#escuchar", {transition: "none"});
+        }
     });
     
     $( "#escuchar" ).on( "pageshow", function( event, ui ) {
