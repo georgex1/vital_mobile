@@ -39,7 +39,7 @@ function page_events(){
             if(escuchar_ == 'bpm'){
                 console.log('escuchar bpm: '+'latidos/'+LatidosData.beat_ratio+'bpm.mp3');
                 
-                $.get('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
+                /*$.get('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
                     console.log('etsta en '+'/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
                 });
                 $.get('/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
@@ -53,10 +53,10 @@ function page_events(){
                 });
                 $.get(filePaht_+'/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
                     console.log('etsta en '+filePaht_+'/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
-                });
+                });*/
                 
                 
-                media = new Media('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
+                media = new Media('/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
                 media.play();
                 
             }else{
@@ -134,6 +134,13 @@ function page_events(){
         });
         return false;
     });
+    
+    /*$( "#home" ).on( "pageshow", function( event, ui ) {
+        $('#code_content').load('http://reservations.vacationrentaldesk.com/onlinebooking/bookingcalendardata2.aspx?propertyid=GreenGableCottage&sourceid=2bf69de2-f143-4007-adf3-02f5f421aecc',
+        function(response, status, xhr ){
+            alert(status);
+        });
+    });*/
     
     $( "#latidos" ).on( "pageshow", function( event, ui ) {
         console.log(LatidosData);
@@ -247,7 +254,7 @@ function openErrorPopup(mjs){
 
 
 function downloadFcn(file_name_, type_) {
-    
+    $.mobile.loading('show');
     var type2_ = type_;
     var ft = new FileTransfer();
     var uri = encodeURI(PathUrl+file_name_);
@@ -273,11 +280,13 @@ function downloadFcn(file_name_, type_) {
         if(type2_ == 'image'){
             imageUrl = entry.fullPath;
             $('#escuchar_top img').attr('src', imageUrl);
+            $.mobile.loading('hide');
         }else if(type2_ == 'mp3'){
             latidosMp3 = entry.fullPath;
             
             media = new Media(latidosMp3, null, function(e) { alert(JSON.stringify(e));});
             media.play();
+            $.mobile.loading('hide');
         }
     }, 
     function(error) {
