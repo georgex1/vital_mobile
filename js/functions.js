@@ -48,6 +48,12 @@ function page_events(){
                 $.get('/asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
                     console.log('etsta en '+'/asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
                 });
+                $.get(filePaht_+'/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
+                    console.log('etsta en '+filePaht_+'/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
+                });
+                $.get(filePaht_+'/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
+                    console.log('etsta en '+filePaht_+'/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
+                });
                 
                 
                 media = new Media('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});

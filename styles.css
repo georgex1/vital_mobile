@@ -91,7 +91,7 @@ button{
 .bago{
     overflow: hidden;
     position: absolute;
-    bottom: 20px;
+    top: 88%;
     width: 89%;
 }
 
@@ -138,7 +138,7 @@ button{
     width: 100%;
     position: absolute;
     background: none;
-    background: url(images/background.png) 0 0 no-repeat;
+    background: url(images/background.png) 0 0 repeat-y;
     background-size: 100% 100%;
 }
 
