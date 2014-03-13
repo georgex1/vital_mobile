@@ -138,11 +138,17 @@ function page_events(){
             $( "#escuchar_title" ).html('Escuchar música');
         }
     });
+    $( "#escuchar" ).on( "pagehide", function( event, ui ) {
+        media.stop();
+    });
     
     $( "#mix_repro" ).on( "pageshow", function( event, ui ) {
         console.log("esuchar mix_repro: "+PathUrl+'musica/'+selMusic+'.mp3');
         media = new Media(PathUrl+'musica/'+selMusic+'.mp3', null, function(e) { alert(JSON.stringify(e));});
         media.play();
+    });
+    $( "#mix_repro" ).on( "pagehide", function( event, ui ) {
+        media.stop();
     });
     
     $( "#musicList li a" ).on('tap', function(){
