@@ -39,7 +39,7 @@ function page_events(){
             if(escuchar_ == 'bpm'){
                 console.log('escuchar bpm: '+'latidos/'+LatidosData.beat_ratio+'bpm.mp3');
                 
-                /*$.get('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
+                $.get('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
                     console.log('etsta en '+'/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
                 });
                 $.get('/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
@@ -51,7 +51,7 @@ function page_events(){
                 
                 
                 media = new Media('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
-                media.play();*/
+                media.play();
                 
             }else{
                 //comprobar y descargar mp3 con latidos
@@ -100,7 +100,7 @@ function page_events(){
             data: 'mobile=1&action=getCode&code='+$('#Icode').val(),
             success: function(data){
                 if(data.error == ''){
-                    console.log(data);
+                    LatidosData = data.content;
                     $.get(filePaht_ + "/vital/"+data.content.foto_url).done(function(){
                         imageUrl = filePaht_ + "/vital/"+data.content.foto_url
                         $('#escuchar_top img').attr('src', imageUrl);
