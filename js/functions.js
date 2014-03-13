@@ -50,16 +50,16 @@ function page_events(){
             
             if(escuchar_ == 'bpm'){
                 console.log('escuchar bpm: '+'latidos/'+LatidosData.beat_ratio+'bpm.mp3');
-                //media = new Media('/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
-                media = new Media(getPhoneGapPath()+'latidos/'+LatidosData.beat_ratio+'bpm.mp3', stopMainAudio, function(e) { alert(JSON.stringify(e));});
+                //media = new Media('/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { console.log(e);});
+                media = new Media(getPhoneGapPath()+'latidos/'+LatidosData.beat_ratio+'bpm.mp3', stopMainAudio, function(e) { console.log(e);});
                 media.play();
                 
             }else{
                 //comprobar y descargar mp3 con latidos
-                $.get(filePaht_ + "/vital/"+LatidosData.latidosmp3).done(function(){
-                    latidosMp3 = filePaht_ + "/vital/"+latidosmp3;
+                $.get(filePaht_ + "/vital/latidos_musica/"+LatidosData.latidosmp3).done(function(){
+                    latidosMp3 = filePaht_ + "/vital/latidos_musica/"+latidosmp3;
                     
-                    media = new Media(latidosMp3, stopMainAudio, function(e) { alert(JSON.stringify(e));});
+                    media = new Media(latidosMp3, stopMainAudio, function(e) { console.log(e);});
                     media.play();
                     console.log('escuchar con mp3: '+latidosMp3);
                 });
@@ -127,7 +127,10 @@ function page_events(){
     });
     
     $( "#latidos" ).on( "pageshow", function( event, ui ) {
-        console.log(LatidosData);
+        if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
+            $('#escuchar_latidoMusica img').attr('src', 'images/latido_musica_active.png');
+            $('#escuchar_latidoMusica span').remove();
+        }
     });
     
     $('#escuchar_latidos').on('tap', function(){
@@ -141,16 +144,9 @@ function page_events(){
         escuchar_ = 'musica';
         if(LatidosData){
             if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
-                $('#escuchar_latidoMusica img').attr('src', 'images/latido_musica_active.png');
-                $('#escuchar_latidoMusica span').remove();
-                
-                $('#escuchar_latidoMusica').on('tap', function(){
-                    $.mobile.changePage( "#escuchar", {transition: "none"});
-                });
+                $.mobile.changePage( "#escuchar", {transition: "none"});
             }else{
-                $('#escuchar_latidoMusica').on('tap', function(){
-                    $.mobile.changePage( "#mix", {transition: "none"});
-                });
+                $.mobile.changePage( "#mix", {transition: "none"});
             }
         }
     });
@@ -174,7 +170,7 @@ function page_events(){
     
     $( "#mix_repro" ).on( "pageshow", function( event, ui ) {
         console.log("esuchar mix_repro: "+PathUrl+'musica/'+selMusic+'.mp3');
-        media = new Media(PathUrl+'musica/'+selMusic+'.mp3', stopMixRepro, function(e) { alert(JSON.stringify(e));});
+        media = new Media(PathUrl+'musica/'+selMusic+'.mp3', stopMixRepro, function(e) { console.log(e);});
         media.play();
     });
     
@@ -253,19 +249,7 @@ function downloadFcn(file_name_, type_) {
     var downloadPath = filePaht_ + "/vital/"+file_name_;
     console.log('downloadPath: ' + downloadPath);
     console.log('downloadUrl: ' + PathUrl+file_name_);
-    /*ft.onprogress = function(progressEvent) {
-        if (progressEvent.lengthComputable) {
-            var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-            $('#status').html(perc + "% loaded...") ;
-        } else {
-            if($('#status').html() == "") {
-                $('#status').html('loading..') ;
-            } else {
-                $('#status').append('.');
-            }
-        }
-    };*/
-
+    
     ft.download(uri, downloadPath, 
     function(entry) {
         if(type2_ == 'image'){
@@ -275,7 +259,7 @@ function downloadFcn(file_name_, type_) {
         }else if(type2_ == 'mp3'){
             latidosMp3 = entry.fullPath;
             
-            media = new Media(latidosMp3, stopMainAudio, function(e) { alert(JSON.stringify(e));});
+            media = new Media(latidosMp3, stopMainAudio, function(e) { console.log(e);});
             media.play();
             $.mobile.loading('hide');
         }
@@ -283,6 +267,23 @@ function downloadFcn(file_name_, type_) {
     function(error) {
         openErrorPopup('Ocurrio un error, por favor intentalo de nuevo.');    
     });
+    
+    ft.onprogress = function(progressEvent) {
+        $('#popup_content').html('<p id="status"></p>');
+        $('#popup').show();
+        if (progressEvent.lengthComputable) {
+            var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+            $('#status').html(perc + "% descargando...") ;
+        } else {
+            if($('#status').html() == "") {
+                $('#status').html('descargando..') ;
+            } else {
+                $('#status').append('.');
+            }
+        }
+    };
+    $('#popup').hide();
+    $('#popup_content').html('');
 }
 
 function gotFS(fileSystem) {

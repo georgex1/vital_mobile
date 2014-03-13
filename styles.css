@@ -671,3 +671,25 @@ h1.ui-title{
     background: #133B68;
 }
 /*EOF panel*/
+
+
+#popup{
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    display: none;
+}
+#popup_content{
+    color: #9B938B;
+    text-align: center;
+    padding: 10px 20px;
+    width: 50%;
+    margin: auto;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.6);
+}
+#popup_content p{
+    margin: 0;
+    padding: 0;
+}
