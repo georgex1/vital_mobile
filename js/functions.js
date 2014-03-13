@@ -38,7 +38,19 @@ function page_events(){
             //if(LatidosData.latidosmp3 != ''){
             if(escuchar == 'bpm'){
                 console.log('escuchar bpm: '+'latidos/'+LatidosData.beat_ratio+'bpm.mp3');
-                media = new Media('/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
+                
+                $.get('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
+                    console.log('etsta en '+'/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
+                });
+                $.get('/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
+                    console.log('etsta en '+'/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
+                });
+                $.get('/asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3').done(function(){
+                    console.log('etsta en '+'/asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3');
+                });
+                
+                
+                media = new Media('/android_asset'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
                 media.play();
                 
             }else{
@@ -87,19 +99,17 @@ function page_events(){
             success: function(data){
                 if(data.error == ''){
                     
+                    $.get(filePaht_ + "/vital/"+data.content.foto_url).done(function(){
+                        imageUrl = filePaht_ + "/vital/"+data.content.foto_url
+                        $('#escuchar_top img').attr('src', imageUrl);
+                    });
+                    
                     setTimeout(function(){
-                        $.get(filePaht_ + "/vital/"+data.content.foto_url).done(function(){
-                            imageUrl = filePaht_ + "/vital/"+data.content.foto_url
-                            $('#escuchar_top img').attr('src', imageUrl);
-                        });
                         if(imageUrl == ''){
                             downloadFcn(data.content.foto_url, 'image');
                         }
-                    }, 100);
-                    
-                    LatidosData = data.content;
-                    
-                    $.mobile.changePage( "#home", {transition: "none"});
+                        $.mobile.changePage( "#home", {transition: "none"});
+                    }, 200);
                 }else{
                     openErrorPopup(data.error);
                 }
@@ -126,6 +136,10 @@ function page_events(){
             $('#escuchar_latidoMusica').on('tap', function(){
                 $.mobile.changePage( "#escuchar", {transition: "none"});
             });
+        }else{
+            $('#escuchar_latidoMusica').on('tap', function(){
+                $.mobile.changePage( "#mix", {transition: "none"});
+            });
         }
     });
     
@@ -148,6 +162,7 @@ function page_events(){
         media = new Media(PathUrl+'musica/'+selMusic+'.mp3', null, function(e) { alert(JSON.stringify(e));});
         media.play();
     });
+    
     $( "#mix_repro" ).on( "pagehide", function( event, ui ) {
         media.stop();
     });
