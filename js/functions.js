@@ -29,8 +29,8 @@ function startup(){
 }
 
 function stopMainAudio(){
-    $(this).removeClass('active');
-    $(this).find('img').attr('src', 'images/escuchar_play.png');
+    $('#escuchar_control').removeClass('active');
+    $('#escuchar_control').find('img').attr('src', 'images/escuchar_play.png');
     $('#escuchar_beat').attr('src', 'images/beat.png');
     if(media){
         media.stop();
@@ -43,18 +43,15 @@ function page_events(){
     $('#escuchar_control').on('tap', function(){
         if($(this).hasClass('active')){
             stopMainAudio();
-            
         }else{
-            
             $(this).addClass('active');
             $(this).find('img').attr('src', 'images/escuchar_pause.png');
             $('#escuchar_beat').attr('src', 'images/beat.gif');
             
-            //if(LatidosData.latidosmp3 != ''){
             if(escuchar_ == 'bpm'){
                 console.log('escuchar bpm: '+'latidos/'+LatidosData.beat_ratio+'bpm.mp3');
                 //media = new Media('/android_asset/www'+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', null, function(e) { alert(JSON.stringify(e));});
-                media = new Media(getPhoneGapPath()+'/latidos/'+LatidosData.beat_ratio+'bpm.mp3', stopMainAudio, function(e) { alert(JSON.stringify(e));});
+                media = new Media(getPhoneGapPath()+'latidos/'+LatidosData.beat_ratio+'bpm.mp3', stopMainAudio, function(e) { alert(JSON.stringify(e));});
                 media.play();
                 
             }else{
@@ -124,12 +121,9 @@ function page_events(){
         return false;
     });
     
-    /*$( "#home" ).on( "pageshow", function( event, ui ) {
-        $('#code_content').load('http://reservations.vacationrentaldesk.com/onlinebooking/bookingcalendardata2.aspx?propertyid=GreenGableCottage&sourceid=2bf69de2-f143-4007-adf3-02f5f421aecc',
-        function(response, status, xhr ){
-            alert(status);
-        });
-    });*/
+    $( "#home" ).on( "pageshow", function( event, ui ) {
+        //getPhoneGapPath();
+    });
     
     $( "#latidos" ).on( "pageshow", function( event, ui ) {
         console.log(LatidosData);
@@ -179,7 +173,7 @@ function page_events(){
     
     $( "#mix_repro" ).on( "pageshow", function( event, ui ) {
         console.log("esuchar mix_repro: "+PathUrl+'musica/'+selMusic+'.mp3');
-        media = new Media(PathUrl+'musica/'+selMusic+'.mp3', null, function(e) { alert(JSON.stringify(e));});
+        media = new Media(PathUrl+'musica/'+selMusic+'.mp3', stopMixRepro, function(e) { alert(JSON.stringify(e));});
         media.play();
     });
     
@@ -227,6 +221,13 @@ function page_events(){
         });
     });
     
+}
+
+function stopMixRepro(){
+    if(media){
+        media.stop();
+        media = null;
+    }
 }
 
 function openErrorPopup(mjs){
@@ -295,4 +296,5 @@ function getPhoneGapPath(){
     var path = window.location.pathname;
     var phoneGapPath = path.substring(0, path.lastIndexOf('/') + 1);
     return phoneGapPath;
+    
 }
