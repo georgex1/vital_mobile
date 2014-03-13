@@ -131,8 +131,13 @@ function page_events(){
     
     $( "#latidos" ).on( "pageshow", function( event, ui ) {
 
+        $('#escuchar_latidoMusica').on('tap', function(){
+            escuchar = 'musica';
+            $.mobile.changePage( "#mix", {transition: "none"});
+        });
+        
         console.log(LatidosData);
-        if(LatidosData){
+        /*if(LatidosData){
             if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
                 $('#escuchar_latidoMusica img').attr('src', 'images/latido_musica_active.png');
                 $('#escuchar_latidoMusica span').remove();
@@ -147,7 +152,7 @@ function page_events(){
                     $.mobile.changePage( "#mix", {transition: "none"});
                 });
             }
-        }
+        }*/
     });
     
     $('#escuchar_latidos').on('tap', function(){
