@@ -118,6 +118,7 @@ button{
     padding: 0.4em;
     width: 64% !important;
     border-bottom: 3px solid #DB6C02 !important;
+    height: 45px;
 }
 
 #code #code_content h1 img, #code #code_content p img, #home #code_content h1 img{
@@ -193,9 +194,11 @@ button{
     padding: 5px 5px 5px 20px;
     list-style: none;
     border-bottom: 1px solid #F2EBDD;
+    min-height: 27px;
 }
 .main_menu ul li a{
     background: url(images/items.png) top left no-repeat;
+    height: 24px;
     background-size: 23px auto;
     display: block;
     padding: 1% 0;
@@ -355,6 +358,11 @@ h1.ui-title{
     height: 50%;
     width: 100%;
     overflow: hidden;
+    text-align: center;
+}
+#escuchar_top img{
+    text-align: center;
+    margin: auto;
 }
 #escuchar_bottom{
     height: 50%;

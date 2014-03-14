@@ -1,6 +1,6 @@
 var fileSystem;
 var filePaht_ = '';
-var isPhonegap = true;
+var isPhonegap = false;
 var PathUrl = 'http://www.thepastoapps.com/proyectos/vital/';
 var responseUrl = PathUrl+'response.php';
 var imageUrl = '';
@@ -122,8 +122,9 @@ function page_events(){
         if(($('#Icode').val() == 'vital1' || $('#Icode').val() == 'vital2' || $('#Icode').val() == 'vital3' || $('#Icode').val() == 'vital4')  && isDemo){//demo
             $.mobile.changePage( "#home", {transition: "none"});
             $('#escuchar_top img').attr('src', 'demo/'+$('#Icode').val()+'.png');
+            
         }else{
-        
+            
         $.ajax({
             url: responseUrl,
             type: "POST",
@@ -197,6 +198,7 @@ function page_events(){
     });
     
     $( "#escuchar" ).on( "pageshow", function( event, ui ) {
+        alignImage();
         if(escuchar_ == 'bpm'){
             $( "#escuchar_title" ).html('Escuchar latidos');
         }else{
@@ -280,6 +282,25 @@ function page_events(){
         });
     });
     
+    $('#Icode').on('tap', function(){
+        $(this).val('');
+        $( "#code" ).scrollTop( $(window).height() );
+    });
+    
+}
+
+function alignImage(){
+    var imgH = $('#escuchar_top img').height();
+    var imgW = $('#escuchar_top img').width();
+    
+    var cntH = $('#escuchar_top').height();
+    var cntW = $('#escuchar_top').width();
+    
+    if( (imgH * cntW / imgW) < cntH){
+        $('#escuchar_top img').height(cntH);
+    }else{
+        $('#escuchar_top img').width(cntW);
+    }
 }
 
 function stopMixRepro(){
