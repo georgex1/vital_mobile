@@ -146,7 +146,6 @@ function page_events(){
     $( "#latidos" ).on( "pageshow", function( event, ui ) {
         if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
             $('#escuchar_latidoMusica img').attr('src', 'images/latido_musica_active.png');
-            $('#escuchar_latidoMusica span').remove();
         }
     });
     
