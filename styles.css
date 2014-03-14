@@ -677,6 +677,7 @@ h1.ui-title{
     position: absolute;
     top: 20%;
     width: 100%;
+    z-index: 999;
     display: none;
 }
 #popup_content{
