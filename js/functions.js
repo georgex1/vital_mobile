@@ -187,14 +187,19 @@ function page_events(){
     
     $( "#mix_repro" ).on( "pageshow", function( event, ui ) {
         
-        $.mobile.loading('show');
-        setTimeout(function(){
-            $.mobile.loading('hide');
-        }, 2000);
-        
-        console.log("esuchar mix_repro: "+PathUrl+'musica/'+selMusic+'.mp3');
-        media = new Media(PathUrl+'musica/'+selMusic+'.mp3', stopMixRepro, function(e) { console.log(e);});
-        media.play();
+        if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
+            escuchar_ = 'musica';
+            $.mobile.changePage( "#escuchar", {transition: "none"});
+        }else{
+            $.mobile.loading('show');
+            setTimeout(function(){
+                $.mobile.loading('hide');
+            }, 2000);
+            
+            console.log("esuchar mix_repro: "+PathUrl+'musica/'+selMusic+'.mp3');
+            media = new Media(PathUrl+'musica/'+selMusic+'.mp3', stopMixRepro, function(e) { console.log(e);});
+            media.play();
+        }
     });
     
     $( "#mix_repro" ).on( "pagehide", function( event, ui ) {
@@ -202,6 +207,12 @@ function page_events(){
             media.stop();
             media = null;
         }
+        setTimeout(function(){
+            if(media){
+                media.stop();
+                media = null;
+            }
+        }, 2000);
     });
     
     $( "#musicList li a" ).on('tap', function(){
