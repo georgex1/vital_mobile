@@ -186,6 +186,12 @@ function page_events(){
     });
     
     $( "#mix_repro" ).on( "pageshow", function( event, ui ) {
+        
+        $.mobile.loading('show');
+        setTimeout(function(){
+            $.mobile.loading('hide');
+        }, 2000);
+        
         console.log("esuchar mix_repro: "+PathUrl+'musica/'+selMusic+'.mp3');
         media = new Media(PathUrl+'musica/'+selMusic+'.mp3', stopMixRepro, function(e) { console.log(e);});
         media.play();
@@ -290,9 +296,14 @@ function downloadFcn(file_name_, type_) {
                 media.play();
                 $.mobile.loading('hide');
             }
+            
+            $('#popup').hide();
+            $('#popup_content').html('');
         }, 
         function(error) {
             openErrorPopup('Ocurrio un error, por favor intentalo de nuevo.');    
+            $('#popup').hide();
+            $('#popup_content').html('');
         });
         
         ft.onprogress = function(progressEvent) {
@@ -307,8 +318,6 @@ function downloadFcn(file_name_, type_) {
                 }
             }
         };
-        $('#popup').hide();
-        $('#popup_content').html('');
         
     }, 200);
 }
