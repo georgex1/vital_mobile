@@ -284,7 +284,12 @@ function page_events(){
     
     $('#Icode').on('tap', function(){
         $(this).val('');
-        $( "#code" ).scrollTop( $(window).height() );
+        setTimeout(function(){
+            $('html, body').animate({
+                scrollTop: $('#Icode').offset().top
+            });
+        }, 300);
+        //$.mobile.silentScroll($(window).height())
     });
     
 }
