@@ -340,7 +340,7 @@ h1.ui-title{
 
 .escuchar .reproductor_display{
     border: none;
-    height: 75%;
+    height: 100%;
     width: 100%;
     position: absolute;
 }
@@ -348,11 +348,11 @@ h1.ui-title{
 .escuchar #footer_logo{
     position: absolute;
     bottom: 10%;
-    height: 25%;
+    height: 29%;
 }
 
 .escuchar .footer_logo_abs{
-    width: 25%;
+    width: 28%;
     margin: auto;
 }
 
@@ -484,6 +484,7 @@ h1.ui-title{
     width: 100%;
     height: 74%;
     margin: auto;
+    top: 4%;
 }
 
 .reproductor_display{
@@ -491,7 +492,7 @@ h1.ui-title{
     overflow: hidden;
     width: 90%;
     position: absolute;
-    padding: 4% 0 6%;
+    /*padding: 4% 0 6%;*/
     border-top: 1px solid #DABE65;
     border-bottom: 1px solid #DABE65;
 }
