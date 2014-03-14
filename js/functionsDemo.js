@@ -312,9 +312,9 @@ function alignImage(){
     var cntW = $('#escuchar_top').width();
     
     if( (imgH * cntW / imgW) < cntH){
-        $('#escuchar_top img').height(cntH);
+        $('#escuchar_top img').height(cntH*1+10);
     }else{
-        $('#escuchar_top img').width(cntW);
+        $('#escuchar_top img').width(cntW*1+10);
     }
 }
 
