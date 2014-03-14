@@ -10,6 +10,7 @@ var latidosMp3 = '';
 var latidosMusicaMp3 = '';
 var selMusic = '';
 var escuchar_ = 'bpm';
+var isDemo = true;
 
 /* Listeners */
 if(isPhonegap){
@@ -42,6 +43,21 @@ function stopMainAudio(){
 function page_events(){
     
     $('#escuchar_control').on('tap', function(){
+        
+        if(isDemo){
+            if($(this).hasClass('active')){
+                stopMainAudio();
+            }else{
+                $(this).addClass('active');
+                $(this).find('img').attr('src', 'images/escuchar_pause.png');
+                $('#escuchar_beat').attr('src', 'images/beat.gif');
+                
+                media = new Media(getPhoneGapPath()+'demo/70bpm.mp3', stopMainAudio, function(e) { console.log(e);});
+                media.play();
+                console.log('escuchar solo latido demo');
+            }
+        }else{
+        
         if($(this).hasClass('active')){
             stopMainAudio();
         }else{
@@ -86,6 +102,7 @@ function page_events(){
                 }, 200);
             }
         }
+        }
     });
     
     $('#escuchar_controls_share').on('click', function(){
@@ -101,6 +118,11 @@ function page_events(){
     
     
     $('#code_form').submit(function() {
+        
+        if(($('#Icode').val() == 'vital1' || $('#Icode').val() == 'vital2' || $('#Icode').val() == 'vital3' || $('#Icode').val() == 'vital4')  && isDemo){//demo
+            $.mobile.changePage( "#home", {transition: "none"});
+            $('#escuchar_top img').attr('src', 'demo/'.$('#Icode').val().'.png');
+        }else{
         
         $.ajax({
             url: responseUrl,
@@ -136,6 +158,7 @@ function page_events(){
                 openErrorPopup('Error al recibir los datos');
             }
         });
+        }
         return false;
     });
     
@@ -145,8 +168,13 @@ function page_events(){
     });
     
     $( "#latidos" ).on( "pageshow", function( event, ui ) {
-        if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
-            $('#escuchar_latidoMusica img').attr('src', 'images/latido_musica_active.png');
+        if(isDemo){
+            escuchar_ = 'bpm';
+            $.mobile.changePage( "#escuchar", {transition: "none"});
+        }else{
+            if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
+                $('#escuchar_latidoMusica img').attr('src', 'images/latido_musica_active.png');
+            }
         }
     });
     
