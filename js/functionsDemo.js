@@ -121,7 +121,7 @@ function page_events(){
         
         if(($('#Icode').val() == 'vital1' || $('#Icode').val() == 'vital2' || $('#Icode').val() == 'vital3' || $('#Icode').val() == 'vital4')  && isDemo){//demo
             $.mobile.changePage( "#home", {transition: "none"});
-            $('#escuchar_top img').attr('src', 'demo/'.$('#Icode').val().'.png');
+            $('#escuchar_top img').attr('src', 'demo/'+$('#Icode').val()+'.png');
         }else{
         
         $.ajax({
