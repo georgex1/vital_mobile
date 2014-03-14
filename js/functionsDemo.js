@@ -1,6 +1,6 @@
 var fileSystem;
 var filePaht_ = '';
-var isPhonegap = false;
+var isPhonegap = true;
 var PathUrl = 'http://www.thepastoapps.com/proyectos/vital/';
 var responseUrl = PathUrl+'response.php';
 var imageUrl = '';
@@ -284,13 +284,23 @@ function page_events(){
     
     $('#Icode').on('tap', function(){
         $(this).val('');
-        setTimeout(function(){
-            $('html, body').animate({
+    });
+    $(window).resize(function(e) {
+        /*setTimeout(function(){
+            $(window).height(actH);
+            $('#code').animate({
                 scrollTop: $('#Icode').offset().top
             });
-        }, 300);
-        //$.mobile.silentScroll($(window).height())
+        }, 2000);
+        //alert('The window resize occurred!  Width: ' + $(window).width() + " Height: " + $(window).height());
+        return false;*/
     });
+    
+    $('#Icode').bind('focus',function(event){
+        //$( "#code" ).scrollTop( 300 );
+    });
+    
+    
     
 }
 
