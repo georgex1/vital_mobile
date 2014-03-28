@@ -9,6 +9,7 @@ var media = null;
 var latidosMp3 = '';
 var latidosMusicaMp3 = '';
 var selMusic = '';
+var selMusicName = '';
 var escuchar_ = 'bpm';
 
 /* Listeners */
@@ -200,6 +201,7 @@ function page_events(){
             escuchar_ = 'musica';
             $.mobile.changePage( "#escuchar", {transition: "none"});
         }else{
+            $('#mix_reproTitle').html(selMusicName);
             $('#inactiveScreen').show();
             $.mobile.loading('show');
             setTimeout(function(){
@@ -232,6 +234,7 @@ function page_events(){
     
     $( "#musicList li a" ).on('tap', function(){
         selMusic = $(this).attr('rel');
+        selMusicName = $(this).html();
     });
     
     $( ".reproductor_opts_cancel" ).on('tap', function(){
