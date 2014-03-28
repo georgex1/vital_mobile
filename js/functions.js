@@ -105,7 +105,7 @@ function page_events(){
         if($(this).hasClass('active')){
             $(this).removeClass('active');
             $('.text_box.margin').animate({'margin-top': '90%'}, 500);
-            $('.margin_arrow img').attr('src', 'images/vital40_arrow_back.png');
+            $('.margin_arrow img').attr('src', 'images/vital40_arrow.png');
             $('.vital40').css('overflow', 'hidden');
         }else{
             $(this).addClass('active');
@@ -229,7 +229,7 @@ function page_events(){
             setTimeout(function(){
                 if(musicaMp3 == '' || musicaMp3 == null){
                     console.log('descargar musica: '+'vital/musica/'+selMusic+'.mp3');
-                    downloadFcn('musica/'+selMusic+'bpm.mp3', 'musica');
+                    downloadFcn('musica/'+selMusic+'.mp3', 'musica');
                 }
                 console.log('escuchar musica: '+'musica/'+selMusic+'.mp3');
             }, 200);
