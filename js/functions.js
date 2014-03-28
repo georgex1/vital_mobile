@@ -175,6 +175,7 @@ function page_events(){
     });
     
     $( "#escuchar" ).on( "pageshow", function( event, ui ) {
+        alignImage();
         if(escuchar_ == 'bpm'){
             $( "#escuchar_title" ).html('Escuchar latidos');
         }else{
@@ -264,6 +265,24 @@ function page_events(){
         });
     });
     
+    $('#Icode').on('tap', function(){
+        $(this).val('');
+    });
+    
+}
+
+function alignImage(){
+    var imgH = $('#escuchar_top img').height();
+    var imgW = $('#escuchar_top img').width();
+    
+    var cntH = $('#escuchar_top').height();
+    var cntW = $('#escuchar_top').width();
+    
+    if( (imgH * cntW / imgW) < cntH){
+        $('#escuchar_top img').height(cntH*1+10);
+    }else{
+        $('#escuchar_top img').width(cntW*1+10);
+    }
 }
 
 function stopMixRepro(){
