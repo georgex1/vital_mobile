@@ -215,7 +215,7 @@ function page_events(){
             $.mobile.changePage( "#escuchar", {transition: "none"});
         }else{
             $('#mix_reproTitle').html(selMusicName);
-            
+            musicaMp3 = '';
             setTimeout(function(){
                 //comprobar y descargar musica
                 $.get(filePaht_ + "/vital/musica/"+selMusic+'.mp3').done(function(){
@@ -378,6 +378,7 @@ function downloadFcn(file_name_, type_) {
     
     $('#popup_content').html('<p id="status"></p>');
     $('#popup').show();
+    $('#inactiveScreen').show();
     
     setTimeout(function(){
         
@@ -418,12 +419,13 @@ function downloadFcn(file_name_, type_) {
                 }
                 $.mobile.loading('hide');
             }
-            
+            $('#inactiveScreen').hide();
             $('#popup').hide();
             $('#popup_content').html('');
         }, 
         function(error) {
             openErrorPopup('Ocurrio un error, por favor intentalo de nuevo.');    
+            $('#inactiveScreen').hide();
             $('#popup').hide();
             $('#popup_content').html('');
         });
