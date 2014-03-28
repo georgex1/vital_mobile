@@ -497,6 +497,14 @@ h1.ui-title{
     border-bottom: 1px solid #DABE65;
 }
 
+#mix_repro .reproductor_display{
+    height: 63%;
+    margin-top: 11%;
+    overflow: hidden;
+    padding-top: 6%;
+    width: 100%;
+}
+
 #reproductor_display_beat{
     position: absolute;
     margin-top: 5%;

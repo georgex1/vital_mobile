@@ -34,8 +34,10 @@ function stopMainAudio(){
     $('#escuchar_control').find('img').attr('src', 'images/escuchar_play.png');
     $('#escuchar_beat').attr('src', 'images/beat.png');
     if(media){
-        media.stop();
-        media = null;
+        setTimeout(function(){
+            media.stop();
+            media = null;
+        }, 500);
     }
 }
 
@@ -54,8 +56,10 @@ function page_events(){
                 $.get(filePaht_ + "/vital/latidos/"+LatidosData.beat_ratio+'bpm.mp3').done(function(){
                     latidosMp3 = filePaht_ + "/vital/latidos/"+LatidosData.beat_ratio+'bpm.mp3';
                     
-                    media = new Media(latidosMp3, stopMainAudio, function(e) { console.log(e);});
-                    media.play();
+                    if(media == null){
+                        media = new Media(latidosMp3, stopMainAudio, function(e) { console.log(e);});
+                        media.play();
+                    }
                     console.log('escuchar solo latido: '+latidosMp3);
                 });
                 setTimeout(function(){
@@ -74,8 +78,10 @@ function page_events(){
                 $.get(filePaht_ + "/vital/latidos_musica/"+LatidosData.latidosmp3).done(function(){
                     latidosMusicaMp3 = filePaht_ + "/vital/latidos_musica/"+LatidosData.latidosmp3;
                     
-                    media = new Media(latidosMusicaMp3, stopMainAudio, function(e) { console.log(e);});
-                    media.play();
+                    if(media == null){
+                        media = new Media(latidosMusicaMp3, stopMainAudio, function(e) { console.log(e);});
+                        media.play();
+                    }
                     console.log('escuchar con mp3: '+latidosMusicaMp3);
                 });
                 setTimeout(function(){
@@ -180,8 +186,10 @@ function page_events(){
     });
     $( "#escuchar" ).on( "pagehide", function( event, ui ) {
         if(media){
-            media.stop();
-            media = null;
+            setTimeout(function(){
+                media.stop();
+                media = null;
+            }, 500);
         }
     });
     
@@ -197,15 +205,19 @@ function page_events(){
             }, 2000);
             
             console.log("esuchar mix_repro: "+PathUrl+'musica/'+selMusic+'.mp3');
-            media = new Media(PathUrl+'musica/'+selMusic+'.mp3', stopMixRepro, function(e) { console.log(e);});
-            media.play();
+            if(media == null){
+                media = new Media(PathUrl+'musica/'+selMusic+'.mp3', stopMixRepro, function(e) { console.log(e);});
+                media.play();
+            }
         }
     });
     
     $( "#mix_repro" ).on( "pagehide", function( event, ui ) {
         if(media){
-            media.stop();
-            media = null;
+            setTimeout(function(){
+                media.stop();
+                media = null;
+            }, 500);
         }
         setTimeout(function(){
             if(media){
@@ -256,8 +268,10 @@ function page_events(){
 
 function stopMixRepro(){
     if(media){
-        media.stop();
-        media = null;
+        setTimeout(function(){
+            media.stop();
+            media = null;
+        }, 500);
     }
 }
 
@@ -298,13 +312,17 @@ function downloadFcn(file_name_, type_) {
                 $.mobile.loading('hide');
             }else if(type2_ == 'mp3'){
                 latidosMusicaMp3 = entry.fullPath;
-                media = new Media(latidosMusicaMp3, stopMainAudio, function(e) { console.log(e);});
-                media.play();
+                if(media == null){
+                    media = new Media(latidosMusicaMp3, stopMainAudio, function(e) { console.log(e);});
+                    media.play();
+                }
                 $.mobile.loading('hide');
             }else if(type2_ == 'latidos'){
                 latidosMp3 = entry.fullPath;
-                media = new Media(latidosMp3, stopMainAudio, function(e) { console.log(e);});
-                media.play();
+                if(media == null){
+                    media = new Media(latidosMp3, stopMainAudio, function(e) { console.log(e);});
+                    media.play();
+                }
                 $.mobile.loading('hide');
             }
             
