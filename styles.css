@@ -325,6 +325,7 @@ h1.ui-title{
 }
 
 #escuchar{
+    overflow: hidden;
 }
 #escuchar .ui-content{
     padding: 0;
@@ -423,8 +424,15 @@ h1.ui-title{
 #escuchar_control{}
 
 #mix{
-    
+overflow: hidden;    
 }
+#latidos{
+    overflow: hidden;
+}
+#mix_repro{
+    overflow: hidden;
+}
+
 #mix .main_menu{
     margin-top: 7%;
 }
@@ -436,8 +444,6 @@ h1.ui-title{
     display: block;
     margin: auto;
 }
-
-#mix_repro{}
 
 #mix_repro h2{
     text-align: center;
@@ -519,16 +525,16 @@ h1.ui-title{
     height: 82%;
 }
 
-#documental{}
-
-#documental.ui-body-a, #documental.ui-overlay-a {
+#documental{
     background: url(images/documental_bck.png) 0 0 no-repeat;
     background-size: 100% 100%;
+    overflow: hidden;
 }
 
 #documental .ui-body-a, #documental .ui-overlay-a {
-    background: url(images/documental_bck.png) 0 0 no-repeat;
-    background-size: 100% 100%;
+    /*background: url(images/documental_bck.png) 0 0 no-repeat;
+    background-size: 100% 100%;*/
+    background: transparent;
 }
 .ui-body-a #nav-panel, .ui-overlay-a #nav-panel{
     background: #1B4C87 !important;
@@ -594,7 +600,12 @@ h1.ui-title{
     background-position: -150px;
 }
 
-#vital40{}
+#vital40{
+    background: url(images/vital40_bck.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    overflow: hidden;
+}
 
 .vital40{
     width: 91%;
@@ -603,9 +614,8 @@ h1.ui-title{
     height: 92%;
 }
 
-#vital40.ui-body-a, #vital40.ui-overlay-a, #vital40 .ui-body-a, #vital40 .ui-overlay-a{
-    background: url(images/vital40_bck.png) 0 0 no-repeat;
-    background-size: 100% 100%;
+#vital40 .ui-body-a, #vital40 .ui-overlay-a{
+    background: transparent;
 }
 
 .text_box{
