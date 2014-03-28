@@ -715,3 +715,18 @@ h1.ui-title{
     margin: 0;
     padding: 0;
 }
+
+#inactiveScreen{
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: black;
+    z-index: 9999;
+    opacity: 0.1;
+}
+
+.androidpaintfix {
+-webkit-transform: translate3d(0,0,0);
+transform: translate3d(0, 0, 0);
+}

@@ -200,10 +200,12 @@ function page_events(){
             escuchar_ = 'musica';
             $.mobile.changePage( "#escuchar", {transition: "none"});
         }else{
+            $('#inactiveScreen').show();
             $.mobile.loading('show');
             setTimeout(function(){
                 $.mobile.loading('hide');
-            }, 2000);
+                $('#inactiveScreen').hide();
+            }, 3000);
             
             console.log("esuchar mix_repro: "+PathUrl+'musica/'+selMusic+'.mp3');
             if(media == null){
