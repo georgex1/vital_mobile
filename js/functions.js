@@ -29,6 +29,11 @@ function startup(){
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
     }
     page_events();
+    
+    console.log(window.device);
+    if(window.device && parseFloat(window.device.version) >= 7){
+        document.body.classList.add('fix-status-bar');
+    }
 }
 
 function stopMainAudio(){
