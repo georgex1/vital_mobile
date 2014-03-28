@@ -652,10 +652,12 @@ overflow: hidden;
 }
 
 .margin_arrow{
-    position: fixed;
-    bottom: 11px;
-    width: 90%;
+    bottom: 0;
     display: block;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
     z-index: 4;
 }
 .margin_arrow img{
