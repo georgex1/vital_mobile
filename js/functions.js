@@ -8,6 +8,7 @@ var LatidosData = null;
 var media = null;
 var latidosMp3 = '';
 var latidosMusicaMp3 = '';
+var musicaMp3 = '';
 var selMusic = '';
 var selMusicName = '';
 var escuchar_ = 'bpm';
@@ -101,9 +102,17 @@ function page_events(){
     
     
     $('.margin_arrow').click(function(){
-        $('.text_box').animate({'margin-top': '0'}, 500);
-        $('.margin_arrow').hide();
-        $('.vital40').css('overflow', 'auto');
+        if($(this).hasClass('active')){
+            $(this).removeClass('active');
+            $('.text_box.margin').animate({'margin-top': '90%'}, 500);
+            $('.margin_arrow img').attr('src', 'images/vital40_arrow_back.png');
+            $('.vital40').css('overflow', 'hidden');
+        }else{
+            $(this).addClass('active');
+            $('.text_box.margin').animate({'margin-top': '0'}, 500);
+            $('.margin_arrow img').attr('src', 'images/vital40_arrow_back.png');
+            $('.vital40').css('overflow', 'auto');
+        }
     });
     
     
@@ -158,21 +167,25 @@ function page_events(){
     });
     
     $('#escuchar_latidos').on('tap', function(){
-        console.log('#escuchar_latidos');
-        escuchar_ = 'bpm';
-        $.mobile.changePage( "#escuchar", {transition: "none"});
+        setTimeout(function(){
+            console.log('#escuchar_latidos');
+            escuchar_ = 'bpm';
+            $.mobile.changePage( "#escuchar", {transition: "none"});
+        }, 400);
     });
     
     $('#escuchar_latidoMusica').on('tap', function(){
         console.log('#escuchar_latidoMusica');
         escuchar_ = 'musica';
-        if(LatidosData){
-            if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
-                $.mobile.changePage( "#escuchar", {transition: "none"});
-            }else{
-                $.mobile.changePage( "#mix", {transition: "none"});
+        setTimeout(function(){
+            if(LatidosData){
+                if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
+                    $.mobile.changePage( "#escuchar", {transition: "none"});
+                }else{
+                    $.mobile.changePage( "#mix", {transition: "none"});
+                }
             }
-        }
+        }, 400);
     });
     
     $( "#escuchar" ).on( "pageshow", function( event, ui ) {
@@ -202,6 +215,27 @@ function page_events(){
             $.mobile.changePage( "#escuchar", {transition: "none"});
         }else{
             $('#mix_reproTitle').html(selMusicName);
+            
+            //comprobar y descargar musica
+            $.get(filePaht_ + "/vital/musica/"+selMusic+'.mp3').done(function(){
+                musicaMp3 = filePaht_ + "/vital/musica/"+selMusic+'.mp3';
+                
+                if(media == null){
+                    media = new Media(musicaMp3, stopMixRepro, function(e) { console.log(e);});
+                    media.play();
+                }
+                console.log('escuchar solo musica: '+musicaMp3);
+            });
+            setTimeout(function(){
+                if(musicaMp3 == '' || musicaMp3 == null){
+                    console.log('descargar musica: '+'vital/musica/'+selMusic+'.mp3');
+                    downloadFcn('musica/'+selMusic+'bpm.mp3', 'musica');
+                }
+                console.log('escuchar musica: '+'musica/'+selMusic+'.mp3');
+            }, 200);
+            
+            
+            /*
             $('#inactiveScreen').show();
             $.mobile.loading('show');
             setTimeout(function(){
@@ -213,7 +247,7 @@ function page_events(){
             if(media == null){
                 media = new Media(PathUrl+'musica/'+selMusic+'.mp3', stopMixRepro, function(e) { console.log(e);});
                 media.play();
-            }
+            }*/
         }
     });
     
@@ -272,6 +306,32 @@ function page_events(){
     
     $('#Icode').on('tap', function(){
         $(this).val('');
+    });
+    
+    $('#documental_play').on('tap', function(){
+        $.ajax({
+            url: responseUrl,
+            type: "POST",
+            dataType: 'json',
+            callback: 'callback',
+            data: 'mobile=1&action=documental',
+            success: function(data){
+                if(data.error == ''){
+                    window.open(data.content.url, '_blank', 'location=yes');
+                }else{
+                    openErrorPopup(data.error);
+                }
+            },beforeSend: function() {
+                $.mobile.loading('show');
+            }, //Show spinner
+            complete: function() {
+                $.mobile.loading('hide');
+            },
+            error: function (obj, textStatus, errorThrown) {
+                $.mobile.loading('hide');
+                openErrorPopup('Error al recibir los datos');
+            }
+        });
     });
     
 }
@@ -345,6 +405,13 @@ function downloadFcn(file_name_, type_) {
                 latidosMp3 = entry.fullPath;
                 if(media == null){
                     media = new Media(latidosMp3, stopMainAudio, function(e) { console.log(e);});
+                    media.play();
+                }
+                $.mobile.loading('hide');
+            }else if(type2_ == 'musica'){
+                musicaMp3 = entry.fullPath;
+                if(media == null){
+                    media = new Media(musicaMp3, stopMixRepro, function(e) { console.log(e);});
                     media.play();
                 }
                 $.mobile.loading('hide');

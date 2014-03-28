@@ -632,20 +632,23 @@ overflow: hidden;
 .text_box h2{
     color: white;
     margin: 0;
-    font-size: 1.3em;
+    font-size: 1.2em;
     text-align: justify;
+    font-weight: 100;
 }
 .text_box h3{
     text-align: justify;
     color: white;
     margin: 0;
-    font-size: 0.9em;
+    font-size: 0.8em;
     text-transform: uppercase;
+    font-weight: 100;
 }
 
 .text_box p{
+    text-align: left;
     color: white;
-    font-size: 0.9em;
+    font-size: 0.8em;
 }
 
 .margin_arrow{
