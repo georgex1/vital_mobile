@@ -216,22 +216,24 @@ function page_events(){
         }else{
             $('#mix_reproTitle').html(selMusicName);
             
-            //comprobar y descargar musica
-            $.get(filePaht_ + "/vital/musica/"+selMusic+'.mp3').done(function(){
-                musicaMp3 = filePaht_ + "/vital/musica/"+selMusic+'.mp3';
-                
-                if(media == null){
-                    media = new Media(musicaMp3, stopMixRepro, function(e) { console.log(e);});
-                    media.play();
-                }
-                console.log('escuchar solo musica: '+musicaMp3);
-            });
             setTimeout(function(){
-                if(musicaMp3 == '' || musicaMp3 == null){
-                    console.log('descargar musica: '+'vital/musica/'+selMusic+'.mp3');
-                    downloadFcn('musica/'+selMusic+'.mp3', 'musica');
-                }
-                console.log('escuchar musica: '+'musica/'+selMusic+'.mp3');
+                //comprobar y descargar musica
+                $.get(filePaht_ + "/vital/musica/"+selMusic+'.mp3').done(function(){
+                    musicaMp3 = filePaht_ + "/vital/musica/"+selMusic+'.mp3';
+                    
+                    if(media == null){
+                        media = new Media(musicaMp3, stopMixRepro, function(e) { console.log(e);});
+                        media.play();
+                    }
+                    console.log('escuchar solo musica: '+musicaMp3);
+                });
+                setTimeout(function(){
+                    if(musicaMp3 == '' || musicaMp3 == null){
+                        console.log('descargar musica: '+'vital/musica/'+selMusic+'.mp3');
+                        downloadFcn('musica/'+selMusic+'.mp3', 'musica');
+                    }
+                    console.log('escuchar musica: '+'musica/'+selMusic+'.mp3');
+                }, 200);
             }, 200);
             
             
@@ -429,7 +431,7 @@ function downloadFcn(file_name_, type_) {
         ft.onprogress = function(progressEvent) {
             if (progressEvent.lengthComputable) {
                 var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-                $('#status').html(perc + "% descargando...") ;
+                $('#status').html(Math.floor(perc/2) + "% descargando...") ;
             } else {
                 if($('#status').html() == "") {
                     $('#status').html('descargando..') ;
