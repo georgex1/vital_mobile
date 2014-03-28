@@ -205,7 +205,7 @@ function page_events(){
             setTimeout(function(){
                 $.mobile.loading('hide');
                 $('#inactiveScreen').hide();
-            }, 3000);
+            }, 4000);
             
             console.log("esuchar mix_repro: "+PathUrl+'musica/'+selMusic+'.mp3');
             if(media == null){
