@@ -31,9 +31,7 @@ function startup(){
     page_events();
     
     console.log(window.device);
-    if(window.device && parseFloat(window.device.version) >= 7){
-        document.body.classList.add('fix-status-bar');
-    }
+    
 }
 
 function stopMainAudio(){

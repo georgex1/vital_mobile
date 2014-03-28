@@ -745,7 +745,3 @@ overflow: hidden;
 -webkit-transform: translate3d(0,0,0);
 transform: translate3d(0, 0, 0);
 }
-
-.fix-status-bar{
-    margin-top: 20px;
-}
