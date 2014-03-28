@@ -31,7 +31,7 @@ function startup(){
     page_events();
     
     console.log(window.device);
-    
+    StatusBar.overlaysWebView(false);
 }
 
 function stopMainAudio(){
