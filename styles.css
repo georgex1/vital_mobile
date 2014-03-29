@@ -160,6 +160,7 @@ button{
 }
 
 .ui-content{
+     padding: 0;
     
 }
 
@@ -745,4 +746,9 @@ overflow: hidden;
 .androidpaintfix {
 -webkit-transform: translate3d(0,0,0);
 transform: translate3d(0, 0, 0);
+}
+
+.mainContent{
+    height: 100%;
+    /*height: 80%;*/
 }
