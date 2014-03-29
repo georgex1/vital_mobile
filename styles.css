@@ -192,7 +192,7 @@ button{
     padding: 0;
 }
 .main_menu ul li{
-    padding: 5px 5px 5px 20px;
+    padding: 8px 5px 5px 20px;
     list-style: none;
     border-bottom: 1px solid #F2EBDD;
     min-height: 27px;
@@ -603,7 +603,7 @@ overflow: hidden;
 
 #vital40{
     background: url(images/vital40_bck.png) 0 0 no-repeat;
-    background-size: 100% 100%;
+    background-size: 100% auto;
     position: absolute;
     overflow: hidden;
 }
