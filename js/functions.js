@@ -45,7 +45,7 @@ function registerDb(){
 
 function registerDbI(tx){
     tx.executeSql('DROP TABLE IF EXISTS VITALMOBILE');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS VITALMOBILE (id unique, email, nombre, regid, plataform, imagen, ciudad, hpercent, showpopup)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS VITALMOBILE (id unique, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo)');
     tx.executeSql('INSERT INTO VITALMOBILE (id, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo) VALUES ('+LatidosData.id+', "'+LatidosData.email_madre+'", "'+LatidosData.nombre_madre+'", "'+LatidosData.email_hijo+'", "'+LatidosData.nombre_hijo+'", "'+LatidosData.foto_url+'", "'+LatidosData.bpm_latidos+'", "'+LatidosData.latidosmp3+'", "'+LatidosData.beat_ratio+'", "'+LatidosData.codigo+'")');
 }
 
