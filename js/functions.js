@@ -29,13 +29,12 @@ function startup(){
         window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
     }
-    page_events();
-    
-    console.log(window.device);
     
     db = window.openDatabase('vitalmobile', "1.0", 'vitalmobile', 10000);
     db.transaction(createDB, errorCB, successCB);
     db.transaction(loginDb, errorCB);
+    
+    page_events();
 }
 
 //database to login
