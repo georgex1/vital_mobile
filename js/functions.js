@@ -83,7 +83,7 @@ function querySuccess(tx, results) {
 }
 
 function errorCB(err) {
-    alert(err);
+    alert(err.toSource());
 }
 function successCB() {
     //console.log('DB success');
