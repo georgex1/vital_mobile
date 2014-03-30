@@ -50,14 +50,17 @@ function registerDbI(tx){
 }
 
 function createDB(tx) {
+    console.log('createDB');
     tx.executeSql('CREATE TABLE IF NOT EXISTS VITALMOBILE (id unique, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo)');
 }
 
 function loginDb(tx) {
+    console.log('loginDb');
     tx.executeSql('SELECT * FROM VITALMOBILE', [], querySuccess, errorCB);
 }
 
 function querySuccess(tx, results) {
+    console.log('querySuccess');
     //console.log("Returned rows = " + results.rows.length);
     if(results.rows.length > 0){
         LatidosData.id = results.rows.item(0).id;
@@ -111,6 +114,7 @@ function stopMainAudio(){
 }
 
 function posLogin(){
+    console.log('posLogin');
     videoUrl = LatidosData.video;
     $.get(filePaht_ + "/vital/"+LatidosData.foto_url).done(function(){
         imageUrl = filePaht_ + "/vital/"+LatidosData.foto_url
@@ -121,6 +125,7 @@ function posLogin(){
         if(imageUrl == ''){
             downloadFcn(LatidosData.foto_url, 'image');
         }
+        console.log('posLogin redir home');
         $.mobile.changePage( "#home", {transition: "none"});
     }, 200);
 }
