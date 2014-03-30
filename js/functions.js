@@ -13,6 +13,7 @@ var selMusic = '';
 var selMusicName = '';
 var escuchar_ = 'bpm';
 var videoUrl = '';
+var db = '';
 
 /* Listeners */
 if(isPhonegap){
