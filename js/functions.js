@@ -25,15 +25,19 @@ if(isPhonegap){
 }
 
 function startup(){
-    
+    console.log('startup');
     if(isPhonegap){
         window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+        
+        db = window.openDatabase('vitalmobile', "1.0", 'vitalmobile', 10000);
+        db.transaction(createDB, errorCB, successCB);
+        setTimeout(function(){
+            console.log('db.transaction loginDb');
+            db.transaction(loginDb, errorCB);
+        }, 100);
+        
     }
-    
-    db = window.openDatabase('vitalmobile', "1.0", 'vitalmobile', 10000);
-    db.transaction(createDB, errorCB, successCB);
-    db.transaction(loginDb, errorCB);
     
     page_events();
 }
