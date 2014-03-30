@@ -64,7 +64,7 @@ function loginDb(tx) {
 }
 
 function querySuccess(tx, results) {
-    console.log('querySuccess');
+    alert('querySuccess');
     //console.log("Returned rows = " + results.rows.length);
     if(results.rows.length > 0){
         LatidosData.id = results.rows.item(0).id;
@@ -78,6 +78,9 @@ function querySuccess(tx, results) {
         LatidosData.beat_ratio = results.rows.item(0).beat_ratio;
         LatidosData.codigo = results.rows.item(0).codigo;
         LatidosData.video = results.rows.item(0).video;
+        
+        alert('results');
+        alert(LatidosData.video);
         
         posLogin();
     }
@@ -119,7 +122,7 @@ function stopMainAudio(){
 }
 
 function posLogin(){
-    console.log('posLogin');
+    alert('posLogin');
     videoUrl = LatidosData.video;
     $.get(filePaht_ + "/vital/"+LatidosData.foto_url).done(function(){
         imageUrl = filePaht_ + "/vital/"+LatidosData.foto_url
