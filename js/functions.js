@@ -12,6 +12,7 @@ var musicaMp3 = '';
 var selMusic = '';
 var selMusicName = '';
 var escuchar_ = 'bpm';
+var videoUrl = '';
 
 /* Listeners */
 if(isPhonegap){
@@ -31,7 +32,72 @@ function startup(){
     page_events();
     
     console.log(window.device);
+    
+    db = window.openDatabase('vitalmobile', "1.0", 'vitalmobile', 10000);
+    db.transaction(createDB, errorCB, successCB);
+    
+    db.transaction(loginDb, errorCB);
 }
+
+//database to login
+function registerDb(){
+   db.transaction(registerDbI, errorCB);
+}
+
+function registerDbI(tx){
+    tx.executeSql('DROP TABLE IF EXISTS VITALMOBILE');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS VITALMOBILE (id unique, email, nombre, regid, plataform, imagen, ciudad, hpercent, showpopup)');
+    tx.executeSql('INSERT INTO VITALMOBILE (id, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo) VALUES ('+LatidosData.id+', "'+LatidosData.email_madre+'", "'+LatidosData.nombre_madre+'", "'+LatidosData.email_hijo+'", "'+LatidosData.nombre_hijo+'", "'+LatidosData.foto_url+'", "'+LatidosData.bpm_latidos+'", "'+LatidosData.latidosmp3+'", "'+LatidosData.beat_ratio+'", "'+LatidosData.codigo+'")');
+}
+
+function createDB(tx) {
+    tx.executeSql('CREATE TABLE IF NOT EXISTS VITALMOBILE (id unique, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo)');
+}
+
+function loginDb(tx) {
+    tx.executeSql('SELECT * FROM VITALMOBILE', [], querySuccess, errorCB);
+}
+
+function querySuccess(tx, results) {
+    //console.log("Returned rows = " + results.rows.length);
+    if(results.rows.length > 0){
+        LatidosData.id = results.rows.item(0).id;
+        LatidosData.email_madre = results.rows.item(0).email_madre;
+        LatidosData.nombre_madre = results.rows.item(0).nombre_madre;
+        LatidosData.email_hijo = results.rows.item(0).email_hijo;
+        LatidosData.nombre_hijo = results.rows.item(0).nombre_hijo;
+        LatidosData.foto_url = results.rows.item(0).foto_url;
+        LatidosData.bpm_latidos = results.rows.item(0).bpm_latidos;
+        LatidosData.latidosmp3 = results.rows.item(0).latidosmp3;
+        LatidosData.beat_ratio = results.rows.item(0).beat_ratio;
+        LatidosData.codigo = results.rows.item(0).codigo;
+        
+        posLogin();
+    }
+}
+
+function errorCB(err) {
+    //console.log(err);
+}
+function successCB() {
+    //console.log('DB success');
+}
+
+function updateDB(sql_){
+    db.transaction(function(tx){
+        tx.executeSql(sql_);
+    }, errorCB);
+}
+
+function logout(){
+    updateDB('DROP TABLE IF EXISTS VITALMOBILE');
+    try{
+        navigator.app.exitApp();
+    }catch(e){
+        $.mobile.changePage( "#code", {transition: "none"});
+    }
+}
+
 
 function stopMainAudio(){
     $('#escuchar_control').removeClass('active');
@@ -43,6 +109,21 @@ function stopMainAudio(){
             media = null;
         }, 500);
     }
+}
+
+function posLogin(){
+    videoUrl = LatidosData.video;
+    $.get(filePaht_ + "/vital/"+LatidosData.foto_url).done(function(){
+        imageUrl = filePaht_ + "/vital/"+LatidosData.foto_url
+        $('#escuchar_top img').attr('src', imageUrl);
+    });
+    
+    setTimeout(function(){
+        if(imageUrl == ''){
+            downloadFcn(LatidosData.foto_url, 'image');
+        }
+        $.mobile.changePage( "#home", {transition: "none"});
+    }, 200);
 }
 
 function page_events(){
@@ -129,17 +210,15 @@ function page_events(){
             success: function(data){
                 if(data.error == ''){
                     LatidosData = data.content;
-                    $.get(filePaht_ + "/vital/"+data.content.foto_url).done(function(){
-                        imageUrl = filePaht_ + "/vital/"+data.content.foto_url
-                        $('#escuchar_top img').attr('src', imageUrl);
-                    });
                     
                     setTimeout(function(){
-                        if(imageUrl == ''){
-                            downloadFcn(data.content.foto_url, 'image');
-                        }
-                        $.mobile.changePage( "#home", {transition: "none"});
+                        registerDb();
+                        
+                        setTimeout(function(){
+                            posLogin();
+                        }, 200);
                     }, 200);
+                    
                 }else{
                     openErrorPopup(data.error);
                 }
@@ -313,29 +392,7 @@ function page_events(){
     });
     
     $('#documental_play').on('tap', function(){
-        $.ajax({
-            url: responseUrl,
-            type: "POST",
-            dataType: 'json',
-            callback: 'callback',
-            data: 'mobile=1&action=documental',
-            success: function(data){
-                if(data.error == ''){
-                    window.open(data.content.url, '_blank', 'location=yes');
-                }else{
-                    openErrorPopup(data.error);
-                }
-            },beforeSend: function() {
-                $.mobile.loading('show');
-            }, //Show spinner
-            complete: function() {
-                $.mobile.loading('hide');
-            },
-            error: function (obj, textStatus, errorThrown) {
-                $.mobile.loading('hide');
-                openErrorPopup('Error al recibir los datos');
-            }
-        });
+        window.open(videoUrl, '_blank', 'location=yes');
     });
     
 }
