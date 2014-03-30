@@ -67,6 +67,8 @@ function querySuccess(tx, results) {
     alert('querySuccess');
     //console.log("Returned rows = " + results.rows.length);
     if(results.rows.length > 0){
+        LatidosData = {'id':'','email_madre':'','nombre_madre':'','email_hijo':'','nombre_hijo':'','foto_url':'','bpm_latidos':'','latidosmp3':'','beat_ratio':'','codigo':'','video':''};
+        
         LatidosData.id = results.rows.item(0).id;
         LatidosData.email_madre = results.rows.item(0).email_madre;
         LatidosData.nombre_madre = results.rows.item(0).nombre_madre;
