@@ -35,7 +35,6 @@ function startup(){
     
     db = window.openDatabase('vitalmobile', "1.0", 'vitalmobile', 10000);
     db.transaction(createDB, errorCB, successCB);
-    
     db.transaction(loginDb, errorCB);
 }
 
@@ -77,7 +76,7 @@ function querySuccess(tx, results) {
 }
 
 function errorCB(err) {
-    //console.log(err);
+    console.log(err);
 }
 function successCB() {
     //console.log('DB success');
