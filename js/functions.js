@@ -25,7 +25,7 @@ if(isPhonegap){
 }
 
 function startup(){
-    alert('startup');
+    console.log('startup');
     if(isPhonegap){
         window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
@@ -33,7 +33,7 @@ function startup(){
         db = window.openDatabase('vitalmobile', "1.0", 'vitalmobile', 10000);
         db.transaction(createDB, errorCB, successCB);
         setTimeout(function(){
-            alert('db.transaction loginDb');
+            console.log('db.transaction loginDb');
             db.transaction(loginDb, errorCB);
         }, 100);
         
@@ -49,22 +49,22 @@ function registerDb(){
 
 function registerDbI(tx){
     tx.executeSql('DROP TABLE IF EXISTS VITALMOBILE');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS VITALMOBILE (id unique, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo)');
-    tx.executeSql('INSERT INTO VITALMOBILE (id, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo) VALUES ('+LatidosData.id+', "'+LatidosData.email_madre+'", "'+LatidosData.nombre_madre+'", "'+LatidosData.email_hijo+'", "'+LatidosData.nombre_hijo+'", "'+LatidosData.foto_url+'", "'+LatidosData.bpm_latidos+'", "'+LatidosData.latidosmp3+'", "'+LatidosData.beat_ratio+'", "'+LatidosData.codigo+'")');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS VITALMOBILE (id unique, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo, video)');
+    tx.executeSql('INSERT INTO VITALMOBILE (id, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo, video) VALUES ('+LatidosData.id+', "'+LatidosData.email_madre+'", "'+LatidosData.nombre_madre+'", "'+LatidosData.email_hijo+'", "'+LatidosData.nombre_hijo+'", "'+LatidosData.foto_url+'", "'+LatidosData.bpm_latidos+'", "'+LatidosData.latidosmp3+'", "'+LatidosData.beat_ratio+'", "'+LatidosData.codigo+'", "'+LatidosData.video+'")');
 }
 
 function createDB(tx) {
-    alert('createDB');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS VITALMOBILE (id unique, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo)');
+    console.log('createDB');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS VITALMOBILE (id unique, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo, video)');
 }
 
 function loginDb(tx) {
-    alert('loginDb');
+    console.log('loginDb');
     tx.executeSql('SELECT * FROM VITALMOBILE', [], querySuccess, errorCB);
 }
 
 function querySuccess(tx, results) {
-    alert('querySuccess');
+    console.log('querySuccess');
     //console.log("Returned rows = " + results.rows.length);
     if(results.rows.length > 0){
         LatidosData.id = results.rows.item(0).id;
@@ -77,13 +77,14 @@ function querySuccess(tx, results) {
         LatidosData.latidosmp3 = results.rows.item(0).latidosmp3;
         LatidosData.beat_ratio = results.rows.item(0).beat_ratio;
         LatidosData.codigo = results.rows.item(0).codigo;
+        LatidosData.video = results.rows.item(0).video;
         
         posLogin();
     }
 }
 
 function errorCB(err) {
-    alert(err.toSource());
+    console.log(err);
 }
 function successCB() {
     //console.log('DB success');
