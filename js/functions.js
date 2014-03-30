@@ -25,7 +25,7 @@ if(isPhonegap){
 }
 
 function startup(){
-    console.log('startup');
+    alert('startup');
     if(isPhonegap){
         window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
@@ -33,7 +33,7 @@ function startup(){
         db = window.openDatabase('vitalmobile', "1.0", 'vitalmobile', 10000);
         db.transaction(createDB, errorCB, successCB);
         setTimeout(function(){
-            console.log('db.transaction loginDb');
+            alert('db.transaction loginDb');
             db.transaction(loginDb, errorCB);
         }, 100);
         
@@ -54,17 +54,17 @@ function registerDbI(tx){
 }
 
 function createDB(tx) {
-    console.log('createDB');
+    alert('createDB');
     tx.executeSql('CREATE TABLE IF NOT EXISTS VITALMOBILE (id unique, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo)');
 }
 
 function loginDb(tx) {
-    console.log('loginDb');
+    alert('loginDb');
     tx.executeSql('SELECT * FROM VITALMOBILE', [], querySuccess, errorCB);
 }
 
 function querySuccess(tx, results) {
-    console.log('querySuccess');
+    alert('querySuccess');
     //console.log("Returned rows = " + results.rows.length);
     if(results.rows.length > 0){
         LatidosData.id = results.rows.item(0).id;
@@ -83,7 +83,7 @@ function querySuccess(tx, results) {
 }
 
 function errorCB(err) {
-    console.log(err);
+    alert(err);
 }
 function successCB() {
     //console.log('DB success');
