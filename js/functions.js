@@ -25,11 +25,14 @@ if(isPhonegap){
 }
 
 $(document).on('pagebeforechange', function(e, data){
-    $('#inactiveScreen2').show();
+    
 });
 
 $(document).on('pagechange', function(e, data){
-    $('#inactiveScreen2').hide();
+    $('#inactiveScreen2').show();
+    setTimeout(function(){
+        $('#inactiveScreen2').hide();
+    }, 500);
 });
 
 function startup(){
@@ -47,9 +50,9 @@ function startup(){
         
     }
     
-    var windowsH = $(window).height();
+    /*var windowsH = $(window).height();
     $('.ui-page').height(Math.round(windowsH*93/100));
-    $('.ui-page').css('min-height',Math.round(windowsH*93/100));
+    $('.ui-page').css('min-height',Math.round(windowsH*93/100));*/
     
     page_events();
 }
