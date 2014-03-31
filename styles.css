@@ -182,7 +182,7 @@ button{
 }*/
 
 .ui-mobile, .ui-mobile body {
-    
+    overflow: hidden;
 }
 
 #latidos .ui-body-a, #latidos .ui-overlay-a{
