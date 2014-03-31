@@ -153,6 +153,7 @@ button{
     background-size: 100% 100%;
     overflow: hidden;
     min-height: none !important;
+    height: 100%;
 }
 .ui-page{
     /*height: 102%;*/
