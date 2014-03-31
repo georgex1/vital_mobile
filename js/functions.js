@@ -298,6 +298,13 @@ function page_events(){
         }
     });
     
+    $( "#mix" ).on( "pageshow", function( event, ui ) {
+        if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
+            escuchar_ = 'musica';
+            $.mobile.changePage( "#escuchar", {transition: "none"});
+        }
+    }
+    
     $( "#mix_repro" ).on( "pageshow", function( event, ui ) {
         
         if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
