@@ -141,9 +141,6 @@ function page_events(){
         if($(this).hasClass('active')){
             stopMainAudio();
         }else{
-            $(this).addClass('active');
-            $(this).find('img').attr('src', 'images/escuchar_pause.png');
-            $('#escuchar_beat').attr('src', 'images/beat.gif');
             
             if(escuchar_ == 'bpm'){
                 //comprobar y descargar latidos
@@ -154,6 +151,11 @@ function page_events(){
                         media = new Media(latidosMp3, stopMainAudio, function(e) { console.log(e);});
                         media.play();
                     }
+                    
+                    $(this).addClass('active');
+                    $(this).find('img').attr('src', 'images/escuchar_pause.png');
+                    $('#escuchar_beat').attr('src', 'images/beat.gif');
+                    
                     console.log('escuchar solo latido: '+latidosMp3);
                 });
                 setTimeout(function(){
@@ -176,6 +178,11 @@ function page_events(){
                         media = new Media(latidosMusicaMp3, stopMainAudio, function(e) { console.log(e);});
                         media.play();
                     }
+                    
+                    $(this).addClass('active');
+                    $(this).find('img').attr('src', 'images/escuchar_pause.png');
+                    $('#escuchar_beat').attr('src', 'images/beat.gif');
+            
                     console.log('escuchar con mp3: '+latidosMusicaMp3);
                 });
                 setTimeout(function(){
@@ -196,7 +203,7 @@ function page_events(){
     $('.margin_arrow').click(function(){
         if($(this).hasClass('active')){
             $(this).removeClass('active');
-            $('.text_box.margin').animate({'margin-top': '90%'}, 500);
+            $('.text_box.margin').animate({'margin-top': '65%'}, 500);
             $('.margin_arrow img').attr('src', 'images/vital40_arrow.png');
             $('.vital40').css('overflow', 'hidden');
         }else{
@@ -479,6 +486,10 @@ function downloadFcn(file_name_, type_) {
                 if(media == null){
                     media = new Media(latidosMusicaMp3, stopMainAudio, function(e) { console.log(e);});
                     media.play();
+                    
+                    $(this).addClass('active');
+                    $(this).find('img').attr('src', 'images/escuchar_pause.png');
+                    $('#escuchar_beat').attr('src', 'images/beat.gif');
                 }
                 $.mobile.loading('hide');
             }else if(type2_ == 'latidos'){
@@ -486,6 +497,10 @@ function downloadFcn(file_name_, type_) {
                 if(media == null){
                     media = new Media(latidosMp3, stopMainAudio, function(e) { console.log(e);});
                     media.play();
+                    
+                    $(this).addClass('active');
+                    $(this).find('img').attr('src', 'images/escuchar_pause.png');
+                    $('#escuchar_beat').attr('src', 'images/beat.gif');
                 }
                 $.mobile.loading('hide');
             }else if(type2_ == 'musica'){
@@ -537,3 +552,28 @@ function getPhoneGapPath(){
     return phoneGapPath;
     
 }
+
+function open_fb_share(){
+    if(navigator.connection.type!=Connection.NONE){
+        window.open('http://m.facebook.com/sharer.php?u='+encodeURI(PathUrl), '_blank', 'location=yes');
+    }else{
+        openErrorPopup('<p>Necesitas estar conectado a internet para completar esta acción.</p>');
+    }
+}
+
+function open_google_share(){
+    if(navigator.connection.type!=Connection.NONE){
+        window.open('https://plus.google.com/share?url='+encodeURI(PathUrl), '_blank', 'location=yes');
+    }else{
+        openErrorPopup('<p>Necesitas estar conectado a internet para completar esta acción.</p>');
+    }
+}
+
+function open_twitter_share(){
+    if(navigator.connection.type!=Connection.NONE){
+        window.open('https://twitter.com/share?url='+encodeURI(PathUrl), '_blank', 'location=yes');
+    }else{
+        openErrorPopup('<p>Necesitas estar conectado a internet para completar esta acción.</p>');
+    }
+}
+
