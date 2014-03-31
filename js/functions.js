@@ -234,7 +234,7 @@ function page_events(){
     
     
     $('#code_form').submit(function() {
-        
+        if(navigator.connection.type!=Connection.NONE){
         $.ajax({
             url: responseUrl,
             type: "POST",
@@ -267,6 +267,9 @@ function page_events(){
                 openErrorPopup('Error al recibir los datos');
             }
         });
+        }else{
+            openErrorPopup('<p>Necesitas estar conectado a internet para completar esta acción.</p>');
+        }
         return false;
     });
     
@@ -402,6 +405,7 @@ function page_events(){
     });
     
     $( ".reproductor_opts_ok" ).on('tap', function(){
+        if(navigator.connection.type!=Connection.NONE){
         $.ajax({
             url: responseUrl,
             type: "POST",
@@ -428,6 +432,9 @@ function page_events(){
                 openErrorPopup('Error al recibir los datos');
             }
         });
+        }else{
+            openErrorPopup('<p>Necesitas estar conectado a internet para completar esta acción.</p>');
+        }
     });
     
     $('#Icode').on('tap', function(){
@@ -477,6 +484,8 @@ function openErrorPopup(mjs){
 
 
 function downloadFcn(file_name_, type_) {
+    
+    if(navigator.connection.type!=Connection.NONE){
     
     $('#popup_content').html('<p id="status"></p>');
     $('#popup').show();
@@ -554,6 +563,7 @@ function downloadFcn(file_name_, type_) {
         };
         
     }, 200);
+    }
 }
 
 function gotFS(fileSystem) {
