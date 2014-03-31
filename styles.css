@@ -15,6 +15,8 @@
 
 body{
     background-color: #212121;
+    background-image: url(../images/background.png);
+    background-size: 100% 100%;
 }
 
 .page{
