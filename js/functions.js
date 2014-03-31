@@ -24,8 +24,12 @@ if(isPhonegap){
     });
 }
 
-$(document).on('pagebeforechange', function(e, data){ 
-    $('.ui-panel-content-wrap').height($(window).height());
+$(document).on('pagebeforechange', function(e, data){
+    $('#inactiveScreen2').show();
+});
+
+$(document).on('pagechange', function(e, data){
+    $('#inactiveScreen2').hide();
 });
 
 function startup(){
