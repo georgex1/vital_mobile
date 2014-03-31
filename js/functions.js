@@ -39,6 +39,9 @@ function startup(){
         
     }
     
+    var windowsH = $(window).height();
+    $('.page').height(windowsH);
+    
     page_events();
 }
 

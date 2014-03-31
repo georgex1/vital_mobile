@@ -135,7 +135,15 @@ button{
 }
 
 .ui-body-a, .ui-overlay-a{
-    height: 92%;
+    background: none;
+}
+
+.ui-panel-content-wrap{
+    height: 93%;
+}
+
+.page{
+    /*height: 92%;*/
     bottom: 0;
     width: 100%;
     position: absolute;
@@ -143,6 +151,7 @@ button{
     background: url(images/background.png) 0 0 no-repeat;
     background-size: 100% 100%;
 }
+
 .ui-loader.ui-body-a{
     background: none;
     position: relative;
