@@ -140,6 +140,7 @@ button{
 
 .ui-panel-content-wrap{
     height: 93%;
+    overflow: hidden;
 }
 
 .page{
@@ -150,6 +151,7 @@ button{
     background: none;
     background: url(images/background.png) 0 0 no-repeat;
     background-size: 100% 100%;
+    overflow: hidden;
 }
 
 .ui-loader.ui-body-a{
