@@ -305,7 +305,7 @@ function page_events(){
             escuchar_ = 'musica';
             $.mobile.changePage( "#escuchar", {transition: "none"});
         }
-    }
+    });
     
     $( "#mix_repro" ).on( "pageshow", function( event, ui ) {
         
