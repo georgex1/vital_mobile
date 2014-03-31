@@ -29,10 +29,10 @@ $(document).on('pagebeforechange', function(e, data){
 });
 
 $(document).on('pagechange', function(e, data){
-    $('#inactiveScreen2').show();
+    /*$('#inactiveScreen2').show();
     setTimeout(function(){
         $('#inactiveScreen2').hide();
-    }, 500);
+    }, 500);*/
 });
 
 function startup(){
