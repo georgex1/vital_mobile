@@ -40,7 +40,7 @@ function startup(){
     }
     
     var windowsH = $(window).height();
-    $('.page').height(Math.round(windowsH*93/100));
+    $('.page').height(Math.round(windowsH*91/100));
     
     page_events();
 }
