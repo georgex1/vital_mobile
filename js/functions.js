@@ -30,7 +30,7 @@ function startup(){
         window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
         
-        db = window.openDatabase('vitalmobile', "1.0", 'vitalmobile', 10000);
+        db = window.openDatabase('vitalmobile', "1.0", 'vitalmobile', 20000);
         db.transaction(createDB, errorCB, successCB);
         setTimeout(function(){
             console.log('db.transaction loginDb');
