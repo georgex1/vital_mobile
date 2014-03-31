@@ -41,6 +41,7 @@ function startup(){
     
     var windowsH = $(window).height();
     $('.page').height(Math.round(windowsH*93/100));
+    $('.page').css('min-height',Math.round(windowsH*93/100));
     
     page_events();
 }
