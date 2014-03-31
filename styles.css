@@ -139,7 +139,7 @@ button{
 }
 
 .ui-panel-content-wrap{
-    height: 93%;
+    /*height: 93%;*/
     overflow: hidden;
 }
 
@@ -153,6 +153,9 @@ button{
     background-size: 100% 100%;
     overflow: hidden;
     min-height: none !important;
+}
+.ui-page{
+    /*height: 102%;*/
 }
 
 .ui-loader.ui-body-a{
@@ -277,7 +280,7 @@ h1.ui-title{
 }
 
 .latidos{
-    height: 76%;    
+    height: 76%;
 }
 #footer_logo{
     height: 15%;

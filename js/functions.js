@@ -24,6 +24,10 @@ if(isPhonegap){
     });
 }
 
+$(document).on('pagebeforechange', function(e, data){ 
+    $('.ui-panel-content-wrap').height($(window).height());
+});
+
 function startup(){
     console.log('startup');
     if(isPhonegap){
@@ -40,8 +44,8 @@ function startup(){
     }
     
     var windowsH = $(window).height();
-    $('.page').height(Math.round(windowsH*93/100));
-    $('.page').css('min-height',Math.round(windowsH*93/100));
+    $('.ui-page').height(Math.round(windowsH*93/100));
+    $('.ui-page').css('min-height',Math.round(windowsH*93/100));
     
     page_events();
 }
