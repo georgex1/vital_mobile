@@ -24,12 +24,12 @@ if(isPhonegap){
     });
 }
 
-$(document).on('pagebeforechange', function(e, data){
+/*$(document).on('pagebeforechange', function(e, data){
     $('#inactiveScreen2').show();
     setTimeout(function(){
         $('#inactiveScreen2').hide();
     }, 200);
-});
+});*/
 
 $(document).on('pagechange', function(e, data){
     /*$('#inactiveScreen2').show();
