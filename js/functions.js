@@ -299,7 +299,9 @@ function page_events(){
     });
     
     $( "#mix" ).on( "pageshow", function( event, ui ) {
+        console.log(LatidosData);
         if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
+            console.log('redir escuchar');
             escuchar_ = 'musica';
             $.mobile.changePage( "#escuchar", {transition: "none"});
         }
