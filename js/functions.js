@@ -487,8 +487,8 @@ function downloadFcn(file_name_, type_) {
                     media = new Media(latidosMusicaMp3, stopMainAudio, function(e) { console.log(e);});
                     media.play();
                     
-                    $(this).addClass('active');
-                    $(this).find('img').attr('src', 'images/escuchar_pause.png');
+                    $('#escuchar_control').addClass('active');
+                    $('#escuchar_control img').attr('src', 'images/escuchar_pause.png');
                     $('#escuchar_beat').attr('src', 'images/beat.gif');
                 }
                 $.mobile.loading('hide');
@@ -498,8 +498,8 @@ function downloadFcn(file_name_, type_) {
                     media = new Media(latidosMp3, stopMainAudio, function(e) { console.log(e);});
                     media.play();
                     
-                    $(this).addClass('active');
-                    $(this).find('img').attr('src', 'images/escuchar_pause.png');
+                    $('#escuchar_control').addClass('active');
+                    $('#escuchar_control img').attr('src', 'images/escuchar_pause.png');
                     $('#escuchar_beat').attr('src', 'images/beat.gif');
                 }
                 $.mobile.loading('hide');

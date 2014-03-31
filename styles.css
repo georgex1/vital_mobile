@@ -198,9 +198,7 @@ button{
     min-height: 27px;
 }
 .main_menu ul li a{
-    background: url(images/items.png) top left no-repeat;
     height: 24px;
-    background-size: 23px auto;
     display: block;
     padding: 1% 0;
     padding-left: 40px;
@@ -218,13 +216,16 @@ button{
     border: none;
 }
 .main_menu ul li.item_escuchar a{
-    background-position: 0 0;
+    background: url(images/item1.png) top left no-repeat;
+    background-size: 23px auto;
 }
 .main_menu ul li.item_documental a{
-    background-position: 0 -36px;
+    background: url(images/item2.png) top left no-repeat;
+    background-size: 23px auto;
 }
 .main_menu ul li.item_vital40 a{
-    background-position: 0 -77px;
+    background: url(images/item3.png) top left no-repeat;
+    background-size: 23px auto;
 }
 
 .ui-bar-a {
