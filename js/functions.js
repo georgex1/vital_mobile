@@ -39,7 +39,7 @@ function startup(){
         
     }
     
-    var windowsH = $(window).height();
+    var windowsH = $(window).height()*1-36;
     $('.page').height(windowsH);
     
     page_events();
