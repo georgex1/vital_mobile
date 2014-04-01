@@ -1,7 +1,7 @@
 var fileSystem;
 var filePaht_ = '';
 var isPhonegap = true;
-var PathUrl = 'http://www.latidosvital.com/';
+var PathUrl = 'http://www.latidosvitales.com/';
 var responseUrl = PathUrl+'response.php';
 var imageUrl = '';
 var LatidosData = null;
