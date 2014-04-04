@@ -67,13 +67,13 @@ function registerDb(){
 
 function registerDbI(tx){
     tx.executeSql('DROP TABLE IF EXISTS VITALMOBILE');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS VITALMOBILE (id unique, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo, video)');
-    tx.executeSql('INSERT INTO VITALMOBILE (id, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo, video) VALUES ('+LatidosData.id+', "'+LatidosData.email_madre+'", "'+LatidosData.nombre_madre+'", "'+LatidosData.email_hijo+'", "'+LatidosData.nombre_hijo+'", "'+LatidosData.foto_url+'", "'+LatidosData.bpm_latidos+'", "'+LatidosData.latidosmp3+'", "'+LatidosData.beat_ratio+'", "'+LatidosData.codigo+'", "'+LatidosData.video+'")');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS VITALMOBILE (id unique, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo, video, recomendada)');
+    tx.executeSql('INSERT INTO VITALMOBILE (id, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo, video, recomendada) VALUES ('+LatidosData.id+', "'+LatidosData.email_madre+'", "'+LatidosData.nombre_madre+'", "'+LatidosData.email_hijo+'", "'+LatidosData.nombre_hijo+'", "'+LatidosData.foto_url+'", "'+LatidosData.bpm_latidos+'", "'+LatidosData.latidosmp3+'", "'+LatidosData.beat_ratio+'", "'+LatidosData.codigo+'", "'+LatidosData.video+'", "'+LatidosData.recomendada+'")');
 }
 
 function createDB(tx) {
     console.log('createDB');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS VITALMOBILE (id unique, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo, video)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS VITALMOBILE (id unique, email_madre, nombre_madre, email_hijo, nombre_hijo, foto_url, bpm_latidos, latidosmp3, beat_ratio, codigo, video, recomendada)');
 }
 
 function loginDb(tx) {
@@ -84,7 +84,7 @@ function loginDb(tx) {
 function querySuccess(tx, results) {
     //console.log("Returned rows = " + results.rows.length);
     if(results.rows.length > 0){
-        LatidosData = {'id':'','email_madre':'','nombre_madre':'','email_hijo':'','nombre_hijo':'','foto_url':'','bpm_latidos':'','latidosmp3':'','beat_ratio':'','codigo':'','video':''};
+        LatidosData = {'id':'','email_madre':'','nombre_madre':'','email_hijo':'','nombre_hijo':'','foto_url':'','bpm_latidos':'','latidosmp3':'','beat_ratio':'','codigo':'','video':'', 'recomendada':''};
         
         LatidosData.id = results.rows.item(0).id;
         LatidosData.email_madre = results.rows.item(0).email_madre;
@@ -97,6 +97,7 @@ function querySuccess(tx, results) {
         LatidosData.beat_ratio = results.rows.item(0).beat_ratio;
         LatidosData.codigo = results.rows.item(0).codigo;
         LatidosData.video = results.rows.item(0).video;
+        LatidosData.recomendada = results.rows.item(0).recomendada;
         
         posLogin();
     }
@@ -332,6 +333,10 @@ function page_events(){
             console.log('redir escuchar');
             escuchar_ = 'musica';
             $.mobile.changePage( "#escuchar", {transition: "none"});
+        }else{
+            $('#popupCloseBtn').show();
+            $('#popup_content').html('Por la velocidad de los latidos te recomendamos los mezcles con el track: '+LatidosData.recomendada);
+            $('#popup').show();
         }
     });
     
@@ -443,6 +448,10 @@ function page_events(){
     
     $('#documental_play').on('tap', function(){
         window.open(videoUrl, '_blank', 'location=yes');
+    });
+    
+    $('#popupCloseBtn').on('tap', function(){
+        $('#popup').fadeOut(700, function(){ $('#popup_content').html(''); $('#popupCloseBtn').hide();});
     });
     
 }

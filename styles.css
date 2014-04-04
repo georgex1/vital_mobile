@@ -736,12 +736,16 @@ overflow: hidden;
     z-index: 999;
     display: none;
 }
+#popup_container{
+    width: 70%;
+    position: relative;
+    margin: auto;
+}
 #popup_content{
     color: #9B938B;
+    padding: 4% 5%;
     text-align: center;
-    padding: 10px 20px;
-    width: 50%;
-    margin: auto;
+    width: 90%;
     background: white;
     border-radius: 5px;
     box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.6);
@@ -749,6 +753,13 @@ overflow: hidden;
 #popup_content p{
     margin: 0;
     padding: 0;
+}
+
+#popupCloseBtn{
+    display: none;
+    position: absolute;
+    top: -20px;
+    right: -20px;
 }
 
 #inactiveScreen{
