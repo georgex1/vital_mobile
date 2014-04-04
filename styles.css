@@ -149,7 +149,7 @@ button{
 .page{
     /*height: 92%;*/
     bottom: 0;
-    width: 100%;
+    width: 92%;
     position: absolute;
     background: none;
     background: url(images/background.png) 0 0 no-repeat;
