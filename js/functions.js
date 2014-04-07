@@ -59,7 +59,7 @@ function startup(){
     
     var windowsH = $(window).height();
     $('#latidos .ui-content').height(windowsH);
-    $('#mix_repro .ui-content').height(windowsH);
+    //$('#mix_repro .ui-content').height(windowsH);
     $('#escuchar .ui-content').height(windowsH);
     
     page_events();

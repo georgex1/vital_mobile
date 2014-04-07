@@ -8,18 +8,23 @@ function startup(){
     $('.ui-page').css('min-height', Math.round(windowsH*93/100));*/
     
     
-    $('#popup_content').html('dada');
-    $('#popup').show();
+    //$('#popup_content').html('dada');
+    //$('#popup').show();
     
     $('#popupCloseBtn').on('tap', function(){
         $('#popup').fadeOut(700, function(){ $('#popup_content').html('');});
     });
+    
+    var windowsH = $(window).height();
+    $('#latidos .ui-content').height(windowsH);
+    $('#mix_repro .ui-content').height(windowsH);
+    $('#escuchar .ui-content').height(windowsH);
 }
 
-$(document).on('pagebeforechange', function(e, data){
+/*$(document).on('pagebeforechange', function(e, data){
     $('#inactiveScreen2').show();
 });
 
 $(document).on('pagechange', function(e, data){
     $('#inactiveScreen2').hide();
-});
+});*/
