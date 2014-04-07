@@ -281,6 +281,19 @@ h1.ui-title{
     background: url(images/mask.png);
 }
 
+.ui-panel-content-wrap{
+    background: url(images/background.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+#vital40 .ui-panel-content-wrap{
+    background: url("images/vital40_bck.png") no-repeat scroll 0 0 / 100% auto rgba(0, 0, 0, 0);
+}
+
+#documental .ui-panel-content-wrap{
+    background: url("images/documental_bck.png") no-repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+
 #latidos.ui-body-a, #latidos.ui-overlay-a {
     background-size: 100% 100%;
 }
@@ -557,7 +570,7 @@ overflow: hidden;
 #documental .ui-body-a, #documental .ui-overlay-a {
     /*background: url(images/documental_bck.png) 0 0 no-repeat;
     background-size: 100% 100%;*/
-    background: transparent;
+    /*background: transparent;*/
 }
 .ui-body-a #nav-panel, .ui-overlay-a #nav-panel{
     background: #1B4C87 !important;
@@ -638,7 +651,7 @@ overflow: hidden;
 }
 
 #vital40 .ui-body-a, #vital40 .ui-overlay-a{
-    background: transparent;
+    /*background: transparent;*/
 }
 
 .text_box{
