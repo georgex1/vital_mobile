@@ -57,10 +57,12 @@ function startup(){
     $('.ui-page').height(Math.round(windowsH*93/100));
     $('.ui-page').css('min-height',Math.round(windowsH*93/100));*/
     
-    var windowsH = $(window).height();
-    $('#latidos .ui-content').height(windowsH);
-    //$('#mix_repro .ui-content').height(windowsH);
-    $('#escuchar .ui-content').height(windowsH);
+    setTimeout(function(){
+        var windowsH = $(window).height();
+        $('#latidos .ui-content').height(windowsH);
+        $('#mix_repro .ui-content').height(windowsH);
+        $('#escuchar .ui-content').height(Math.round(windowsH*93/100));
+    }, 200);
     
     page_events();
 }

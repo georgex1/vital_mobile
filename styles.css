@@ -265,13 +265,13 @@ h1.ui-title{
 }
 
 .ui-content {
-    height: 93%;
+    /*height: 93%;*/
     padding: 5%;
 }
 
 #mix_repro .ui-content {
     padding: 0;
-    height: 100%;
+    /*height: 100%;*/
 }
 
 #latidos .ui-content{
