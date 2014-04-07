@@ -142,7 +142,7 @@ button{
 }
 
 .ui-panel-content-wrap{
-    height: 93%;
+    /*height: 93%;*/
     overflow: hidden;
 }
 

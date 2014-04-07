@@ -57,6 +57,9 @@ function startup(){
     $('.ui-page').height(Math.round(windowsH*93/100));
     $('.ui-page').css('min-height',Math.round(windowsH*93/100));*/
     
+    var windowsH = $(window).height();
+    $('ui-panel-content-wrap').height(Math.round(windowsH*93/100));
+    
     page_events();
 }
 
@@ -560,8 +563,12 @@ function downloadFcn(file_name_, type_) {
         
         ft.onprogress = function(progressEvent) {
             if (progressEvent.lengthComputable) {
-                var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-                $('#status').html(Math.floor(perc/2) + "% descargando...") ;
+                if(type2_ == 'image'){
+                    $('#status').html('Obteniendo Imágen...');
+                }else{
+                    var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+                    $('#status').html(Math.floor(perc/2) + "% descargando...") ;
+                }
             } else {
                 if($('#status').html() == "") {
                     $('#status').html('descargando..') ;
