@@ -15,12 +15,12 @@ function startup(){
         $('#popup').fadeOut(700, function(){ $('#popup_content').html('');});
     });
     
-    setTimeout(function(){
-        var windowsH = $(window).height();
-        $('#latidos .ui-content').height(Math.round(windowsH*93/100));
-        $('#mix_repro .ui-content').height(Math.round(windowsH*93/100));
-        $('#escuchar .ui-content').height(Math.round(windowsH*93/100));
-    }, 200);
+    //setTimeout(function(){
+//        var windowsH = $(window).height();
+//        $('#latidos .ui-content').height(Math.round(windowsH*93/100));
+//        $('#mix_repro .ui-content').height(Math.round(windowsH*93/100));
+//        $('#escuchar .ui-content').height(Math.round(windowsH*93/100));
+//    }, 200);
 }
 
 /*$(document).on('pagebeforechange', function(e, data){

@@ -288,10 +288,10 @@ function page_events(){
     
     $( "#latidos" ).on( "pageshow", function( event, ui ) {
         
-        setTimeout(function(){
+        /*setTimeout(function(){
             var windowsH = $(window).height();
             $('#latidos .ui-content').height(Math.round(windowsH*93/100));
-        }, 100);
+        }, 100);*/
         
         if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
             $('#escuchar_latidoMusica img').attr('src', 'images/latido_musica_active.png');
@@ -322,10 +322,10 @@ function page_events(){
     
     $( "#escuchar" ).on( "pageshow", function( event, ui ) {
         
-        setTimeout(function(){
+        /*setTimeout(function(){
             var windowsH = $(window).height();
             $('#escuchar .ui-content').height(Math.round(windowsH*93/100));
-        }, 100);
+        }, 100);*/
         
         alignImage();
         if(escuchar_ == 'bpm'){
@@ -361,10 +361,10 @@ function page_events(){
     
     $( "#mix_repro" ).on( "pageshow", function( event, ui ) {
         
-        setTimeout(function(){
+        /*setTimeout(function(){
             var windowsH = $(window).height();
             $('#mix_repro .ui-content').height(Math.round(windowsH*93/100));
-        }, 100);
+        }, 100);*/
         
         if(LatidosData.latidosmp3 != '' && LatidosData.latidosmp3 != null){
             escuchar_ = 'musica';
