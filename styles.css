@@ -275,6 +275,8 @@ h1.ui-title{
 }
 
 #latidos .ui-content{
+    position: absolute;
+    width: 90%;
     height: 94%;
     background: url(images/mask.png);
 }
@@ -350,7 +352,7 @@ h1.ui-title{
 }
 #escuchar .ui-content{
     padding: 0;
-    height: 100%;
+    height: 93%;
     width: 100%;
     position: absolute;
     overflow: hidden;
