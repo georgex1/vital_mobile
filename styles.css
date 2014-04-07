@@ -288,10 +288,18 @@ h1.ui-title{
 
 #vital40 .ui-panel-content-wrap{
     background: url("images/vital40_bck.png") no-repeat scroll 0 0 / 100% auto rgba(0, 0, 0, 0);
+    height: 93%;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
 }
 
 #documental .ui-panel-content-wrap{
     background: url("images/documental_bck.png") no-repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+    height: 93%;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
 }
 
 #latidos.ui-body-a, #latidos.ui-overlay-a {
