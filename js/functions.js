@@ -58,7 +58,7 @@ function startup(){
     $('.ui-page').css('min-height',Math.round(windowsH*93/100));*/
     
     var windowsH = $(window).height();
-    $('ui-panel-content-wrap').height(Math.round(windowsH*93/100));
+    $('.ui-panel-content-wrap').height(Math.round(windowsH*93/100));
     
     page_events();
 }
