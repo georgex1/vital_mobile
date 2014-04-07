@@ -59,8 +59,8 @@ function startup(){
     
     setTimeout(function(){
         var windowsH = $(window).height();
-        $('#latidos .ui-content').height(windowsH);
-        $('#mix_repro .ui-content').height(windowsH);
+        $('#latidos .ui-content').height(Math.round(windowsH*93/100));
+        $('#mix_repro .ui-content').height(Math.round(windowsH*93/100));
         $('#escuchar .ui-content').height(Math.round(windowsH*93/100));
     }, 200);
     
