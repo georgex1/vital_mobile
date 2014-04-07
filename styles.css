@@ -142,7 +142,7 @@ button{
 }
 
 .ui-panel-content-wrap{
-    /*height: 93%;*/
+    height: 93%;
     overflow: hidden;
 }
 
@@ -275,7 +275,7 @@ h1.ui-title{
 }
 
 #latidos .ui-content{
-    height: 94%;
+    height: 100%;
     background: url(images/mask.png);
 }
 
