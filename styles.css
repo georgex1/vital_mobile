@@ -271,11 +271,11 @@ h1.ui-title{
 
 #mix_repro .ui-content {
     padding: 0;
-    height: 100%;
+    /*height: 100%;*/
 }
 
 #latidos .ui-content{
-    height: 100%;
+    /*height: 100%;*/
     background: url(images/mask.png);
 }
 
@@ -350,7 +350,7 @@ h1.ui-title{
 }
 #escuchar .ui-content{
     padding: 0;
-    height: 100%;
+    /*height: 100%;*/
     width: 100%;
     position: absolute;
     overflow: hidden;

@@ -57,8 +57,10 @@ function startup(){
     $('.ui-page').height(Math.round(windowsH*93/100));
     $('.ui-page').css('min-height',Math.round(windowsH*93/100));*/
     
-    //var windowsH = $(window).height();
-    //$('.ui-panel-content-wrap').height(Math.round(windowsH*93/100));
+    var windowsH = $(window).height();
+    $('#latidos .ui-content').height(windowsH);
+    $('#mix_repro .ui-content').height(windowsH);
+    $('#escuchar .ui-content').height(windowsH);
     
     page_events();
 }
