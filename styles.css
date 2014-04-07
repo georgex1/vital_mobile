@@ -352,7 +352,7 @@ h1.ui-title{
 }
 #escuchar .ui-content{
     padding: 0;
-    height: 93%;
+    height: 100%;
     width: 100%;
     position: absolute;
     overflow: hidden;
