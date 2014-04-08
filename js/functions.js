@@ -285,7 +285,7 @@ function page_events(){
     });
     
     $( "#documental" ).on( "pageshow", function( event, ui ) {
-        $('#videoShareEmail').attr('href', 'mailto:?subject=Latidos%20Vitales&body=%20%20%20Mir%C3%A1%20el%20documental%20de%20Vital3%20ac%C3%A1%20%20%20%20%0D%0A%20%20%20'+videoUrl+'%20%20%20%0D%0A%20%20%20y%20enterate%20c%C3%B3mo%20regalarle%20tus%20latidos%20a%20tu%20hijo.%20%20%20">');
+        $('#videoShareEmail').attr('href', 'mailto:?subject=Latidos%20Vitales&body=%20%20%20Mir%C3%A1%20el%20documental%20de%20Vital3%20ac%C3%A1%20%20%20%20%0D%0A%20%20%20'+videoUrl+'%20%20%20%0D%0A%20%20%20y%20enterate%20c%C3%B3mo%20regalarle%20tus%20latidos%20a%20tu%20hijo.%20%20%20');
     });
     
     $( "#latidos" ).on( "pageshow", function( event, ui ) {
