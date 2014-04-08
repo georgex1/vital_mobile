@@ -176,11 +176,10 @@ function page_events(){
                     if(media == null){
                         media = new Media(latidosMp3, stopMainAudio, function(e) { console.log(e);});
                         media.play();
+                        $('#escuchar_control').addClass('active');
+                        $('#escuchar_control img').attr('src', 'images/escuchar_pause.png');
+                        $('#escuchar_beat').attr('src', 'images/beat.gif');
                     }
-                    
-                    $(this).addClass('active');
-                    $(this).find('img').attr('src', 'images/escuchar_pause.png');
-                    $('#escuchar_beat').attr('src', 'images/beat.gif');
                     
                     console.log('escuchar solo latido: '+latidosMp3);
                 });
@@ -203,11 +202,10 @@ function page_events(){
                     if(media == null){
                         media = new Media(latidosMusicaMp3, stopMainAudio, function(e) { console.log(e);});
                         media.play();
+                        $('#escuchar_control').addClass('active');
+                        $('#escuchar_control img').attr('src', 'images/escuchar_pause.png');
+                        $('#escuchar_beat').attr('src', 'images/beat.gif');
                     }
-                    
-                    $(this).addClass('active');
-                    $(this).find('img').attr('src', 'images/escuchar_pause.png');
-                    $('#escuchar_beat').attr('src', 'images/beat.gif');
             
                     console.log('escuchar con mp3: '+latidosMusicaMp3);
                 });
