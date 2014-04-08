@@ -284,6 +284,10 @@ function page_events(){
         //getPhoneGapPath();
     });
     
+    $( "#documental" ).on( "pageshow", function( event, ui ) {
+        $('#videoShareEmail').attr('href', 'mailto:?subject=Latidos%20Vitales&body=%20%20%20Mir%C3%A1%20el%20documental%20de%20Vital3%20ac%C3%A1%20%20%20%20%0D%0A%20%20%20'+videoUrl+'%20%20%20%0D%0A%20%20%20y%20enterate%20c%C3%B3mo%20regalarle%20tus%20latidos%20a%20tu%20hijo.%20%20%20" class="Email">');
+    });
+    
     $( "#latidos" ).on( "pageshow", function( event, ui ) {
         
         /*setTimeout(function(){
@@ -616,25 +620,34 @@ function getPhoneGapPath(){
     
 }
 
-function open_fb_share(){
+function open_fb_share(Svideo){
     if(navigator.connection.type!=Connection.NONE){
-        window.open('http://m.facebook.com/sharer.php?u='+encodeURI(PathUrl), '_blank', 'location=yes');
+        if(Svideo == 1)
+            window.open('http://m.facebook.com/sharer.php?u='+encodeURI(videoUrl), '_blank', 'location=yes');
+        else
+            window.open('http://m.facebook.com/sharer.php?u='+encodeURI(PathUrl), '_blank', 'location=yes');
     }else{
         openErrorPopup('<p>Necesitas estar conectado a internet para completar esta acción.</p>');
     }
 }
 
-function open_google_share(){
+function open_google_share(Svideo){
     if(navigator.connection.type!=Connection.NONE){
-        window.open('https://plus.google.com/share?url='+encodeURI(PathUrl), '_blank', 'location=yes');
+        if(Svideo == 1)
+            window.open('https://plus.google.com/share?url='+encodeURI(videoUrl), '_blank', 'location=yes');
+        else
+            window.open('https://plus.google.com/share?url='+encodeURI(PathUrl), '_blank', 'location=yes');
     }else{
         openErrorPopup('<p>Necesitas estar conectado a internet para completar esta acción.</p>');
     }
 }
 
-function open_twitter_share(){
+function open_twitter_share(Svideo){
     if(navigator.connection.type!=Connection.NONE){
-        window.open('https://twitter.com/share?url='+encodeURI(PathUrl), '_blank', 'location=yes');
+        if(Svideo == 1)
+            window.open('https://twitter.com/share?url='+encodeURI(videoUrl), '_blank', 'location=yes');
+        else
+            window.open('https://twitter.com/share?url='+encodeURI(PathUrl), '_blank', 'location=yes');
     }else{
         openErrorPopup('<p>Necesitas estar conectado a internet para completar esta acción.</p>');
     }
