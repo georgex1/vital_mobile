@@ -336,7 +336,8 @@ function page_events(){
             if(LatidosData.latidosmp3 == '' || LatidosData.latidosmp3 == null){
                 $.mobile.changePage( "#mix", {transition: "none"});
             }
-            $( "#escuchar_title" ).html('Escuchar música');
+            $( "#escuchar_title" ).html('Escuchá el latido mezclado con canciones de cuna');
+            //$( "#escuchar_title" ).html('Escuchar música');
         }
     });
     $( "#escuchar" ).on( "pagehide", function( event, ui ) {
