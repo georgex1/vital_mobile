@@ -33,6 +33,7 @@
                         <p><button type="submit">Ingresar</button></p>
                     </form>
                 </div><!--form-->
+                <div class="bago"><div class="bago_center"><img src="images/bago_logo.png" width="100%" /><a href="#documental_not_logged">ver experimento</a></div></div>
                 <div class="bago"><div class="bago_center"><img src="images/bago_logo.png" width="100%" /></div></div>
             </div>
         </div><!--code-->
@@ -297,6 +298,34 @@
                 </ul>
             </div>
         </div><!--vital40-->
+
+<!--agregado por agus-->
+
+ <!-- documental -->
+        <div data-role="page" data-theme="a" id="documental_not_logged" class="page">
+            <div data-theme="a" data-role="header" data-position="fixed">
+                <h1>Experimento</h1>
+                <a href="#code" class="androidpaintfix" data-transition="none"><img src="images/menu_flecha.png" width="20" /></a>
+                <!--<a href="#nav-panel" class="androidpaintfix"><img src="images/menu_opciones.png" width="20" /></a>-->
+            </div><!--header-->
+            <div data-role="content">
+                <div class="documental">
+                    <!--<h2>MIRA EL DOCUMENTAL</h2>-->
+                    <a href="javascript:;" id="documental_play" class="play"><img src="images/documental_play.png" width="100%" /></a>
+                    
+                    <div class="redes">
+                        <img src="images/logo.png" width="24%" />
+                        <div class="redes_right">
+                            <a href="javascript:;" onclick="open_fb_share(1)" class="Facebook">Facebook</a>
+                            <a href="javascript:;" onclick="open_twitter_share(1)" class="Twitter">Twitter</a>
+                            <a href="javascript:;" onclick="open_google_share(1)" class="Google">Google</a>
+                            <a href="" id="videoShareEmail" class="Email">Email</a>
+                        </div>
+                    </div><!--redes-->
+                </div><!--documental-->
+            </div>
+        </div><!--documental-->
+
         
         <div id="popup">
             <div id="popup_container">
