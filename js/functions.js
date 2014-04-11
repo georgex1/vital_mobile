@@ -67,6 +67,19 @@ function startup(){
     page_events();
 }
 
+function initVars(){
+    var imageUrl = '';
+    var LatidosData = null;
+    var media = null;
+    var latidosMp3 = '';
+    var latidosMusicaMp3 = '';
+    var musicaMp3 = '';
+    var selMusic = '';
+    var selMusicName = '';
+    var escuchar_ = 'bpm';
+    var videoUrl = '';
+}
+
 //database to login
 function registerDb(){
    db.transaction(registerDbI, errorCB);
@@ -125,6 +138,7 @@ function updateDB(sql_){
 
 function logout(){
     updateDB('DROP TABLE IF EXISTS VITALMOBILE');
+    initVars();
     try{
         navigator.app.exitApp();
     }catch(e){
