@@ -15,6 +15,8 @@ function startup(){
         $('#popup').fadeOut(700, function(){ $('#popup_content').html('');});
     });
     
+    $('#code').height($('#code').css('min-height'));
+    
     //setTimeout(function(){
 //        var windowsH = $(window).height();
 //        $('#latidos .ui-content').height(Math.round(windowsH*93/100));
