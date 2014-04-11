@@ -605,6 +605,10 @@ overflow: hidden;
     overflow: hidden;
 }
 
+#documental .documental{
+    display: none;
+}
+
 #documental .ui-body-a, #documental .ui-overlay-a {
     /*background: url(images/documental_bck.png) 0 0 no-repeat;
     background-size: 100% 100%;*/
