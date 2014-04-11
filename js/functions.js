@@ -12,7 +12,7 @@ var musicaMp3 = '';
 var selMusic = '';
 var selMusicName = '';
 var escuchar_ = 'bpm';
-var videoUrl = '';
+var videoUrl = 'https://www.youtube.com/watch?v=S-Q8wX7N7xI';
 var db = '';
 
 /* Listeners */
@@ -77,7 +77,7 @@ function initVars(){
     selMusic = '';
     selMusicName = '';
     escuchar_ = 'bpm';
-    videoUrl = '';
+    //videoUrl = '';
 }
 
 //database to login
@@ -160,7 +160,7 @@ function stopMainAudio(){
 }
 
 function posLogin(){
-    videoUrl = LatidosData.video;
+    //videoUrl = LatidosData.video;
     $.get(filePaht_ + "/vital/"+LatidosData.foto_url).done(function(){
         imageUrl = filePaht_ + "/vital/"+LatidosData.foto_url
         $('#escuchar_top img').attr('src', imageUrl);
@@ -299,6 +299,18 @@ function page_events(){
     });
     
     $( "#documental" ).on( "pageshow", function( event, ui ) {
+        if(LatidosData == null){
+            $('#docNavPanel').hide();
+            $('#docBackLink').on('tap', function(){
+                $.mobile.changePage( "#code", {transition: "none"});
+            });
+        }else{
+            $('#docNavPanel').show();
+            $('#docBackLink').on('tap', function(){
+                $.mobile.changePage( "#home", {transition: "none"});
+            });
+        }
+        
         $('#videoShareEmail').attr('href', 'mailto:?subject=Latidos%20Vitales&body=%20%20%20Mir%C3%A1%20el%20documental%20de%20Vital3%20ac%C3%A1%20%20%20%20%0D%0A%20%20%20'+videoUrl+'%20%20%20%0D%0A%20%20%20y%20enterate%20c%C3%B3mo%20regalarle%20tus%20latidos%20a%20tu%20hijo.%20%20%20');
     });
     

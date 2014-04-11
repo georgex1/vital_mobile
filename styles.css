@@ -104,6 +104,28 @@ button{
     margin: auto;
 }
 
+#link_home_doc{
+    background-color: #FB7902;
+    border: 1px solid #FB7902;
+    color: #FFFFFF;
+    display: block;
+    font-size: 1em;
+    margin: auto;
+    text-align: center;
+    text-decoration: none;
+    width: 52%;
+    margin-bottom: 20px;
+}
+
+#link_home_doc span{
+    border: 1px solid #FFFFFF;
+    display: block;
+    height: 22px;
+    margin: 1px 0;
+    padding-top: 4px;
+    width: 98%;
+}
+
 .page .form input{
     border: none;
     background: white;
