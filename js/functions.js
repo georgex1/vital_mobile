@@ -68,16 +68,16 @@ function startup(){
 }
 
 function initVars(){
-    var imageUrl = '';
-    var LatidosData = null;
-    var media = null;
-    var latidosMp3 = '';
-    var latidosMusicaMp3 = '';
-    var musicaMp3 = '';
-    var selMusic = '';
-    var selMusicName = '';
-    var escuchar_ = 'bpm';
-    var videoUrl = '';
+    imageUrl = '';
+    LatidosData = null;
+    media = null;
+    latidosMp3 = '';
+    latidosMusicaMp3 = '';
+    musicaMp3 = '';
+    selMusic = '';
+    selMusicName = '';
+    escuchar_ = 'bpm';
+    videoUrl = '';
 }
 
 //database to login
