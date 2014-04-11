@@ -298,7 +298,8 @@ function page_events(){
         //getPhoneGapPath();
     });
     
-    $('#documental').on('pagebeforechange', function(e, data){
+    $( "#documental" ).on( "pageshow", function( event, ui ) {
+        
         if(LatidosData == null){
             $('#docNavPanel').hide();
             $('#docBackLink').on('tap', function(){
@@ -310,9 +311,6 @@ function page_events(){
                 $.mobile.changePage( "#home", {transition: "none"});
             });
         }
-    });
-    
-    $( "#documental" ).on( "pageshow", function( event, ui ) {
         
         setTimeout(function(){
             $( "#documental .documental" ).fadeIn();
