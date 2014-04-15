@@ -363,11 +363,13 @@ function page_events(){
         alignImage();
         if(escuchar_ == 'bpm'){
             $( "#escuchar_title" ).html('Escuchar latidos');
+            //$( "#escuchar_title" ).removeClass('largeTitle');
         }else{
             if(LatidosData.latidosmp3 == '' || LatidosData.latidosmp3 == null){
                 $.mobile.changePage( "#mix", {transition: "none"});
             }
             $( "#escuchar_title" ).html('Escuchá el latido mezclado con canciones de cuna');
+            //$( "#escuchar_title" ).addClass('largeTitle');
             //$( "#escuchar_title" ).html('Escuchar música');
         }
     });

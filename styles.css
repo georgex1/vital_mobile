@@ -384,6 +384,11 @@ h1.ui-title{
 .latidos p.pb{
     background: #F87D1A;
 }
+
+.latidos p.pb2{
+    width: 61%;
+}
+
 .latidos p span{
     position: absolute;
     top: -10px;
@@ -849,3 +854,7 @@ overflow: hidden;
 -webkit-transform: translate3d(0,0,0);
 transform: translate3d(0, 0, 0);
 }
+
+/*.largeTitle{
+    font-size: 0.8em;
+}*/
